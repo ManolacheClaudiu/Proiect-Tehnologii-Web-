@@ -1,34 +1,54 @@
 <!DOCTYPE html>
-<html lang='en'>
-    <head>
-        <title>PasteIT</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body >
-        <div class="container-1">
-            <div class="box-1">
-              <h3>PasteIT</h3>
+<html>
+<head>
+	<title>Paste-It WebApp</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+<body>
+	<div class="logo">
+		<img src="logo.png">
+	</div>
+
+	<header>
+		
+		<div class="UpperLayout">
+            <div class="LogoBox">
             </div>
         </div>
-            
-        <div class="container-2">
-            <div class="container-2-box-1">
-              <h3>Your repository</h3>   
-            </div>
-            <div class="container-2-box-2">
-              <h3>Here it will appear your code</h3>
-            </div>
-            <div class="container-2-box-3">
-              <h3>Your settings</h3>
+		
+		<div class="MiddleLayout">
+			<div class="NavigationMenu">
+				<h3>NavigationMenu</h3>
+			<ul>
+				<li class="active"><a href="#Home">Home</a></li>
+				<li><a href="#MyRepositories">MyRepositories</a></li>
+				<li><a href="#Services">Services</a></li>
+				<li><a href="#Contact">Contact</a></li>
+				<li><a href="#About">About</a></li>
+			</ul>
+				</div>
+			<div class="CodeBox">
+              <form action="/action_page.php">
+					<label for="CodeBox"></label>
+						<textarea id="CodeBox" name="Codebox" placeholder="Write your code here!" rows="17" cols="70"></textarea>
+  				<br>
+  					<input type="submit" value="Submit">
+					</form>
+            	</div>
+            <div class="RightSettings">
+              <h3>Code settings and options</h3>
             </div>
         </div>
-          
-        <div class="container-3">
-            <div class="container-3-box-1">
-              <h3> Here will be implemented the Save button</h3>
+       
+        <div class="LowerLayout">
+            <div class="Footer-box">
+              <h3> Here will be information about the website, contact information , etc.</h3>
             </div>
         </div>
-    </body>
+
+	</header>
+</body>
 </html>
