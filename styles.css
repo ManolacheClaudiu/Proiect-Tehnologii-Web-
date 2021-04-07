@@ -50,7 +50,7 @@ a:hover {
 }
 
 .logo img{
-	float: center;
+	align-content: center;
 	width: 150px;
 	height: auto;
 }
