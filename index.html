@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="styles.css">
-
+    <script src="myScript.js"></script>
 </head>
 <body>
 	<div class="logo">
@@ -14,29 +14,110 @@
 		<div class="UpperLayout">
             <div class="LogoBox">
             </div>
+			<h3>
+				<div class="login">
+				   <a href="#">Login/Register</a>
+				</div>
+			</h3>
         </div>
 		
 		<div class="MiddleLayout">
 			<div class="NavigationMenu">
 				<h3>NavigationMenu</h3>
-			<ul>
-				<li class="active"><a href="#Home">Home</a></li>
-				<li><a href="#MyRepositories">MyRepositories</a></li>
-				<li><a href="#Services">Services</a></li>
-				<li><a href="#Contact">Contact</a></li>
-				<li><a href="#About">About</a></li>
-			</ul>
-				</div>
+				<ul>
+					<li class="active"><a href="#Home">Home</a></li>
+					<li><a href="#MyRepositories">MyRepositories</a></li>
+					<li><a href="#Services">Services</a></li>
+					<li><a href="#Contact">Contact</a></li>
+					<li><a href="#About">About</a></li>
+				</ul>
+			</div>
+
 			<div class="CodeBox">
-              <form action="/action_page.php">
+             	 <form action="/action_page.php">
 					<label for="CodeBox"></label>
-						<textarea id="CodeBox" name="Codebox" placeholder="Write your code here!" rows="17" cols="500"></textarea>
-  				<br>
+					<textarea id="CodeBox" name="Codebox" placeholder="Write your code here!" rows="17" cols="500"></textarea>
+  					<br>
   					<input type="submit" value="Submit">
-					</form>
-            	</div>
+				</form>
+            </div>
+		
             <div class="RightSettings">
-              <h3>Code settings and options</h3>
+				<a href="#SyntaxHighlighting">
+					<label for="myCheck">
+						Syntax </br>Highlighting
+					</label>
+					 <input type="checkbox" id="myCheck" onclick="highlight()">
+					<p id="text" style="display:none">Activated</p>
+				</a>
+				
+							<a href="#Languages">
+								<label for="Languages">
+								</label>
+									Languages</br>
+								<select id="Languages" name="Languages">
+									<option value="unselected">unselected</option>
+									<option value="html">html</option>
+									<option value="c">c</option>
+									<option value="c++">c++</option>
+									<option value="css">css</option>
+									<option value="java">java</option>
+								</select>
+							</a>
+				<form action="/action_page.php"></form>
+					<ul>
+						<li>
+							<a href="#Valability">
+								<label for="Valability">
+									Valability</br>
+								</label>
+								<select id="Visibility" name="Visibility">
+									<option value="1">1 day</option>
+									<option value="2">2 days</option>
+									<option value="3">3 days</option>
+									<option value="4">4 days</option>
+									<option value="5">5 days</option>
+									<option value="6">6 days</option>
+									<option value="7">7 days</option>
+									<option value="8">8 days</option>
+									<option value="9">9 days</option>
+									<option value="10">10 days</option>
+									<option value="15">15 days</option>
+									<option value="20">20 days</option>
+									<option value="25">25 days</option>
+									<option value="30">30 days</option>
+								</select>							</a>
+						</li>
+						<li>
+							<a href="#Visibility">
+								<label for="Visibility">
+									Visibility</br>
+								</label>
+								<select id="Visibility" name="Visibility">
+									<option value="public">public</option>
+									<option value="private">private</option>
+								</select>
+							</a>
+						</li>
+						<li>
+							<a href="#Colaborators">
+							<label for="username">
+								Colaborators</br>
+							</label>
+						
+							<input type="text" id="username" name="username" size="9wv" required>
+						</a>
+						</li>
+						<li>
+							<a href="#Password">
+								<label for="pwd">Password:</br></label>
+								<input type="password" id="pwd" name="pwd" size="9wv"> 
+							</a>
+						</li>
+					</ul>
+				</br>
+					<input type="submit" value="Submit">
+				</form>
             </div>
         </div>
        
