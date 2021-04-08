@@ -6,56 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="styles.css">
     <script src="myScript.js"></script>
+    <link rel="icon" href="logo.png">
 </head>
 <body>
-
+	<header><div class="login">
+					<h3><a href="#">Login/Register</a></h3>
+				</div></header>
+	<div class="logo">
+		<img src="logo.png" alt="logo">
+	</div>
+	<div class="logo1">
+		<img src="name.png" alt="name">
+	</div>
 		<div class="UpperLayout">
-		
-            
-			<div class="logo">
-				<img src="logo.png" alt="logo">
-			</div>
-				<div class="login">
-					<a href="login.html">Login  Sign up </a>
-				</div>
+            <div class="LogoBox">
+            </div>
+			
+				
+			
         </div>
 		
 		<div class="MiddleLayout">
 			<div class="NavigationMenu">
-				
-					<label for="myCheck">
-					
-					Syntax <br>Highlighting
-				</label>
-				 <input type="checkbox" id="myCheck" onclick="highlight()">
-				<p id="text" style="display:none">Activated</p>
-			
-			
-					<br>	
-							<label for="Languages">
-							<br>Languages<br>
-							</label>
-								
-							<select id="Languages" name="Languages">
-								<option value="unselected">unselected</option>
-								<option value="html">html</option>
-								<option value="c">c</option>
-								<option value="c++">c++</option>
-								<option value="css">css</option>
-								<option value="java">java</option>
-							</select>
+				<h3>NavigationMenu</h3>
 				<ul>
-					<li><a href="#MyRepositories">html</a></li>
+					<li class="active"><a href="#Home">Home</a></li>
 					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-	
+					<li><a href="#Services">Services</a></li>
+					<li><a href="#Contact">Contact</a></li>
+					<li><a href="#About">About</a></li>
 				</ul>
 			</div>
 
@@ -64,7 +43,36 @@
 					<label for="CodeBox"></label>
 					<textarea id="CodeBox" name="Codebox" placeholder="Write your code here!" rows="17" cols="500"></textarea>
   					<br>
-					  <ul>
+  					<input type="submit" value="Submit">
+				</form>
+            </div>
+		
+            <div class="RightSettings">
+				
+					<label for="myCheck">
+					
+						Syntax <br>Highlighting
+					</label>
+					 <input type="checkbox" id="myCheck" onclick="highlight()">
+					<p id="text" style="display:none">Activated</p>
+				
+				
+						<br>	
+								<label for="Languages">
+								<br>Languages<br>
+								</label>
+									
+								<select id="Languages" name="Languages">
+									<option value="unselected">unselected</option>
+									<option value="html">html</option>
+									<option value="c">c</option>
+									<option value="c++">c++</option>
+									<option value="css">css</option>
+									<option value="java">java</option>
+								</select>
+							
+				<form action="/action_page.php">
+					<ul>
 						<li>
 							
 								<label for="Valability">
@@ -104,7 +112,7 @@
 							<br>Colaborators<br>
 							</label>
 						
-							<input type="text" id="username" name="username" size="9" >
+							<input type="text" id="username" name="username" size="9" required>
 						
 						</li>
 						<li>
@@ -115,7 +123,7 @@
 						</li>
 					</ul>
 				<br>
-  					<input type="submit" value="Submit">
+					<input type="submit" value="Submit">
 				</form>
             </div>
         </div>
