@@ -3,7 +3,7 @@
 	padding: 0;
 	font-family: Century Gothic;
   font-size:100%;
-	color: darkgreen;
+	color: rgb(255,150,0);
 }
 
 body{
@@ -130,11 +130,20 @@ textarea {
     height: 100vh;
 }
 div.login{
-    float: right;
+    position: absolute;
+    top: 3%;
+    left: 84%;
     padding: 2%;
-    font-family: sans-serif;  
 }
 
-.login {
-    font-family: cursive;
+.login,.register{
+      font-size: 20px;
 }
+div.register{
+    position: absolute;
+    top: 3%;
+    left: 88%;
+    padding: 2%;
+    font-family: sans-serif;
+}
+
