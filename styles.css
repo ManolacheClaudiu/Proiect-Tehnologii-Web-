@@ -44,12 +44,14 @@ body{
 .NavigationMenu{
 	flex:20%;
 	order: 1;
+	background-color: rgb(25,27,33);
 }
 .CodeBox{
     flex:80% ;
 	min-width: 50%;
     order:2;
     min-height: 85vh;
+	background-color: rgb(25,27,33)
   }
 input,textarea{
 	background-color: #d1d1d1;
