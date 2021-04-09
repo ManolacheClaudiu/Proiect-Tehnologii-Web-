@@ -51,8 +51,12 @@ body{
 	min-width: 50%;
     order:2;
     min-height: 85vh;
-	background-color: rgb(25,27,33)
+	background-color: rgb(25,27,33);
+	
   }
+.CodeBox textarea{
+ padding: 1%;
+}
 input,textarea{
 	background-color: #d1d1d1;
 	border:2px solid rgb(0, 153, 115);
