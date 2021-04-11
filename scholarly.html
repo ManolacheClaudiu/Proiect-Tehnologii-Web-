@@ -1,190 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <head>
+        <title>Scholarly</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style_scholarly.css">  
+    </head>
 
-<head>
-    <title>Scholarly</title>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style_scholarly.css">  
-</head>
+    <body prefix="schema: http://schema.org">
+        <header>
+            <div class="banner">
+            <img src="logo.png" width="225"  alt="logo">
+            <div class="status">Web technologies</div>
+            </div>
+            <h1>Paste it</h1>
+        </header>
 
-<body prefix="schema: http://schema.org">
-    <h1 itemprop="name">PasteIt</h1>
-    <!-- Cuprins-->
-    <ol>
-        <li>
-            <a href="#authors">Authors</a>
-        </li>
-        <li>
-            <a href="#introduction">Introduction</a>
-            <ol>
-                <li><a href="#purpose">Purpose</a></li>
-                <li><a href="#conventions"> Conventions</a></li>
-                <li><a href="#productpurpose"> Product purpose</a></li>
-                <li><a href="#references">References</a></li>
-            </ol>
-        </li>
-        <li>
-            <a href="#generalDescription">General description</a>
-            <ol>
-                <li><a href="#productPerspective"> Product perspective</a></li>
-                <li><a href="#productFunctions"> Product Functions</a></li>
-                <li><a href="#operationEnvironment">Operation environment</a></li>
-                <li><a href="#designConstrains"> Design constrains</a></li>
-            </ol>
-        </li>
-        <li>
-            <a href="#externalRequirements"> External requirements</a>
-            <ol>
-                <li><a href="#userInterface"> User interface</a></li>
-                <li><a href="#softwareInterface"> Software interface</a></li>
-                <li><a href="#communicationInterface">Communication interface</a></li>
-            </ol>
-        </li>
-        <li>
-            <a href="#functionalRequirements">Functional requirements</a>
-            <ol>
-                <li><a href="#register">Register</a></li>
-                <li><a href="#login">Log in</a></li>
-                <li><a href="#uploadCode">Upload code</a></li>
-                <li><a href="#postsManagement">Posts management</a></li>
-                <li><a href="#postsProtection">Posts protection</a></li>
-                <li><a href="#syntaxHighlight">Syntax highlight</a></li>
-                <li><a href="#capcha">Capcha</a></li>
-                <li><a href="#postsModifiers">Posts modifiers</a></li>            </ol>
-        </li>
-        <li>
-            <a href="#nonfunctionalRequirements">Nonfunctional requirements</a>
-            <ol>
-                <li><a href="#safety">Safety</a></li>
-                <li><a href="#security">Security</a></li>
-            </ol>
-        </li>
-        <li>
-            <a href="#bibliography">Bibliography</a>
-        </li>
-    </ol>
-
-
-    <article id = "article" typeof = "schema:ScholarlyArticle" resource = "#"> 
-        <section id="authors"  typeof="sa:AuthorsList"> 
-                <h2> Authors</h2>
-                <ol> 
-                    <li property = "schema:author" typeof="sa:ContributorRole"> 
-                        <a property = "schema:author" href="#" typeof="schema:Person"> 
-                                <span property= "schema:giveName" >Claudiu</span>
-                                <span property= "schema:familyName" >Manolache</span>
-                        </a>
-                    </li>
-
-                    <li property = "schema:author" typeof="sa:ContributorRole"> 
-                        <a property = "schema:author" href="#" typeof="schema:Person"> 
-                                <span property= "schema:giveName" >Tiberiu</span>
-                                <span property= "schema:familyName" >Tiprigran</span>
-                        </a>
-                    </li>
-                </ol>
-        </section>
-
-
-        <section role="doc-introduction">
-                <h2 id="introduction"> Introduction</h2>
-                <p> 
-                    PasteIt is an web application designed for to share code. The application suports also to store it 
-                    for a set amount of time. The source code could be considered as text or as code in Html, Css, Java, C and C++.
-                    It can be used by an unlogged user, but the logged one has more functionalities.
-                </p>
-                
-                <h3 id="purpose">Purpose</h3>
-                <p>  
-                    PasteIt is an web application, easy to use, designed to be helpfull to the ones which want to
-                    share their source code with anothers or to have it on another device.
-                    The user does not need to much instructions: the application is intuitive: click on it, paste your code,
-                    save it and the share to whoever he wish.
-                    Another usability comes from the ones who want to help the others with their code, by posting it public 
-                    and inspiring anothers. If the user consider his code having issues, he can easely put it in private mode, if he is logged in.
-                </p>
-                
-                <h3 id="conventions">Conventions</h3>
-                <p>
-                    Meant to be easy to use, the application doesn't have a lot of functionalities and it makes it even faster.
-                    The user could post his source code by pasting it in the textarea from the main page. After he decided about its valability and its visibility, 
-                    he can save it as public and share is as a link, or select the colaborators to which he wants to share the source code.
-                    As an logged in user, he can manage his code, which is the left side of main page: he can edit it or simply delete it.
-                </p>
-
-                <h3 id="productpurpose">Product purpose.</h3>
-                <p>
-                    The product has the purpose to bring an easy to use environment, designed in dark colors, to protect as much we can the eyes,
-                    The application is designed to be intuitive and just for its concise purpose: share code fast and easily.     
-                </p>
-                <h3 id="references"><span>2.4 </span>References</h3>           
-                <p>
-                    For our site, we used primarily W3Schools
-                </p>
+        <ol>
+            <li>
+                <a href="#authors">Authors</a>
+            </li>
+            <li>
+                <a href="#introduction">Introduction</a>
                 <ol>
-                    <li><a href="https://www.w3schools.com/html">https://www.w3schools.com/html<a></li>
-                    <li><a href="https://www.w3schools.com/css/">https://www.w3schools.com/css/<a></li>
-                </ol>    
-        </section>
-
-        <section>
-            <h2 id="generalDescription">General description</h2>
-            <h3 id= "productPerspective">Product perspective</h3>
-            <p>
-               Our web application is not meant to be a tool for working in big projects. 
-               We consider our application a good tool for learning and to be easy to use by students.
-               If we would compare our application functionalities with other big platforms like GitHub,
-               our one is not meant to used in professional purpose. It can be used just to personal purpose, 
-               to share code easily to someones, or to keep your code for a while. Our application does not assume
-              the privacy of the users code.
-            </p> 
-
-            <h3 id= "productFunctions"> Product functions</h3>
-            <p> 
-                The PasteIt application provides simply options which can help the user to share his code.
-                A logged user has the option to make his code visibility from public to private, while the unlogged one has the code by default public. 
-                The logged user has also the option to set the time exposure and set a password, in case he wants to share to code just to someones.
-                Furthermore, he can add colaborators which can edit his code, but you will be able to see the precedent version.
-            </p>
-
-
-         
-            <h3 id= "operationEnvironment">Operation environment </h3>
-            <p>              
-                PasteIt application does not contain more than it needs, so it is compatibile with any browser and device which support Html, Css, JavaScript and PHP.
-            </p>
-            <h3 id= "designConstrains">Design constrains</h3>
-            <p>           
-                PasteIt is a web application which is meant to be a tool for sharing source code.
-                Because is meant to be easy to use and fast, it doesn't provide the option to load up an folder, multiple text files or media files.
-                It is designed just for text.  
-            </p>
-     
-
-        </section>
-
-        <section>    
-
-            <h2 id="externalRequirements">External requirements</h2>
-
-            <h3 id="userInterface">User interface</h3>
-            <h4>Main page:</h4>
-            <img src="./resources/main.pdf" alt="main page">
-          
-            <h4>Login/ Register page: <h4>
-            <img src="./resources/login.pdf" alt="login page">
-
-            <h3 id="softwareInterface">Software interface</h3>
-            <p>
-                The application will be conected to a database using SQL. In this way, the user will be able to
-                load source code, register and log in on our platform.      
-            <h3 id="communicationInterface">Communication interface</h3>
-            <p>
-                The application use HTTP as a protocol between client and server.
-            </p>
-        </section>
-    </article>
-</body>
-
+                    <li><a href="#purpose">Purpose</a></li>
+                    <li><a href="#conventions"> Conventions</a></li>
+                    <li><a href="#references">References</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#description">Description</a>
+                <ol>
+                    <li><a href="#perspective">Perspective</a></li>
+                    <li><a href="#functions"> Functions</a></li>
+                    <li><a href="#operatingEnvironment">Operating environment</a></li>
+                    <li><a href="#designConstraints"> Design constraints</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#requirements">Requirements</a>
+                <ol>
+                    <li><a href="#userInterface"> User interface</a></li>
+                    <li><a href="#softwareInterface"> Software interface</a></li>
+                    <li><a href="#communicationInterface">Communication interface</a></li>
+                    <li><a href="#registerLogin">Register and Log in</a></li>
+                    <li><a href="#codeUpload">Code upload</a></li>
+                    <li><a href="#postsManagement">Posts management</a></li>
+                    <li><a href="#postsProtection">Posts protection</a></li>
+                    <li><a href="#syntaxHighlight">Syntax highlight</a></li>
+                    <li><a href="#capcha">Capcha</a></li>
+                    <li><a href="#postsModifiers">Posts modifiers</a></li>            </ol>
+            </li>
+            <li>
+                <a href="#bibliography">Bibliography</a>
+            </li>
+        </ol>
+        <article id="articles" typeof = "schema:ScholarlyArticle"> 
+            <section id="authors"  typeof="sa:AuthorsList"> 
+                    <h2 id="author"> Authors</h2>
+                    <ol> 
+                        <li property = "schema:author" typeof="sa:ContributorRole"> 
+                            <a property = "schema:author" href="#" typeof="schema:Person"> 
+                                    <span property= "schema:FirstName" >Claudiu</span>
+                                    <span property= "schema:LastName" >Manolache</span>
+                            </a>
+                        </li>
+                        <li property = "schema:author" typeof="sa:ContributorRole"> 
+                            <a property = "schema:author" href="#" typeof="schema:Person"> 
+                                    <span property= "schema:FirstName" >Tiberiu</span>
+                                    <span property= "schema:LastName" >Tiprigran</span>
+                            </a>
+                        </li>
+                    </ol>
+            </section>
+            <section role="doc-introduction">
+                    <h2 id="introduction"> Introduction</h2>
+                    <p> 
+                        PasteIt is an web application designed for to share code. The application suports also to store it 
+                        for a set amount of time. The source code could be considered as text or as code in Html, Css, Java, C and C++.
+                        It can be used by an unlogged user, but the logged one has more functionalities.
+                    </p>
+                    <h3 id="purpose">Purpose</h3>
+                    <p>  
+                        PasteIt is an web application, easy to use, designed to be helpfull to the ones which want to
+                        share their source code with anothers or to have it on another device.
+                        The user does not need to much instructions: the application is intuitive: click on it, paste your code,
+                        save it and the share to whoever he wish.
+                        Another usability comes from the ones who want to help the others with their code, by posting it public 
+                        and inspiring anothers. If the user consider his code having issues, he can easely put it in private mode, if he is logged in.
+                        The product has the purpose to bring an easy to use environment, designed in dark colors, to protect as much we can the eyes,
+                        The application is designed to be intuitive and just for its concise purpose: share code fast and easily.     
+                    </p>
+                    
+                    <h3 id="conventions">Conventions</h3>
+                    <p>
+                        Meant to be easy to use, the application doesn't have a lot of functionalities and it makes it even faster.
+                        The user could post his source code by pasting it in the textarea from the main page. After he decided about its valability and its visibility, 
+                        he can save it as public and share is as a link, or select the colaborators to which he wants to share the source code.
+                        As an logged in user, he can manage his code, which is the left side of main page: he can edit it or simply delete it.
+                    </p>
+                    <h3 id="references">References</h3>           
+                    <p>
+                        For our site, we used primarily W3Schools
+                    </p>
+                    <ol>
+                        <li><a href="https://www.w3schools.com/html">https://www.w3schools.com/html</a></li>
+                        <li><a href="https://www.w3schools.com/css/">https://www.w3schools.com/css/</a></li>
+                    </ol>    
+            </section>
+            <section>
+                <h2 id="description">Description</h2>
+                <h3 id= "perspective">Perspective</h3>
+                <p>
+                Our web application is not meant to be a tool for working in big projects. 
+                We consider our application a good tool for learning and to be easy to use by students.
+                If we would compare our application functionalities with other big platforms like GitHub,
+                our one is not meant to used in professional purpose. It can be used just to personal purpose, 
+                to share code easily to someones, or to keep your code for a while. Our application does not assume
+                the privacy of the users code.
+                </p> 
+                <h3 id= "functions"> Functions</h3>
+                <p> 
+                    The PasteIt application provides simply options which can help the user to share his code.
+                    A logged user has the option to make his code visibility from public to private, while the unlogged one has the code by default public. 
+                    The logged user has also the option to set the time exposure and set a password, in case he wants to share to code just to someones.
+                    Furthermore, he can add colaborators which can edit his code, but you will be able to see the precedent version.
+                </p>
+                <h3 id= "operatingEnvironment">Operating environment </h3>
+                <p>              
+                    PasteIt application does not contain more than it needs, so it is compatibile with any browser and device which support Html, Css, JavaScript and PHP.
+                </p>
+                <h3 id= "designConstraints">Design constraints</h3>
+                <p>           
+                    PasteIt is a web application which is meant to be a tool for sharing source code.
+                    Because is meant to be easy to use and fast, it doesn't provide the option to load up an folder, multiple text files or media files.
+                    It is designed just for text.  
+                </p>
+            </section>
+            <section>    
+                <h2 id="requirements">Requirements</h2>
+                <h3 id="userInterface">User interface</h3>
+                <h4 id="mainPage">Main page:</h4>
+                <img src="./resources/main.pdf" alt="main page">
+                <h4 id="loginRegister">Login/ Register page: </h4>
+                <img src="./resources/login.pdf" alt="login page">
+                <h3 id="softwareInterface">Software interface</h3>
+                <p>
+                    The application will be conected to a database using SQL. In this way, the user will be able to
+                    load source code, register and log in on our platform.      
+                <h3 id="communicationInterface">Communication interface</h3>
+                <p>
+                    The application use HTTP as a protocol between client and server.
+                </p>
+                <h3 id="registerLogin">Login and register</h3>
+                <p>
+                    An unlogged user doesn't have the option to set his source code as private, neither to set its valability.
+                    An user who wish more functionalities, must register on our platform, to get more.
+                    A registered user can use our platform logged in, to benefit of the others functionalities. 
+                    The registration will be done through a 'POST' method.
+    
+                </p>
+                <h3  typeof="sa:MaterialsAndMethods" id="codeUpload">Code upload</h3>
+                <p>
+                    The code upload is the main activity of our platform.Either is logged or unlogged, an user
+                    will be able to load code and share with someone. The user will paste the code in the textarea, 
+                    and through a 'POST' method it will be postedin our platform, transfered to server,  and then ready to share.
+                </p>
+                <h3 id="postsManagement">Posts management</h3>
+                <p>
+                If the user is logged in our platform, he can easily manage their posts, editing it, or simply deleting.
+                </p>
+                <h3 id="postsProtection">Posts protection</h3>
+                <p>
+                    If the user is logged in our platform, he has the abilty to set a password for his source code, 
+                    and then the code will be readable just through introducing the password. This option gives the user the option to keep
+                    his code just for who he wants.
+                </p>
+                <h3 id="syntaxHighlight">Syntax highlight</h3> 
+                <p>
+                    The user has the option to keep his code as a simply black text, or to color the keywords from a programming
+                    language: HTML, CSS, JAVA, C or C++.
+                    The user must check the button for activate it and select the desired language to highlight.
+                </p>
+                <h3 id="capcha">CAPCHA</h3>
+                <p>
+                    In order to prevent the spam, an unlogged user will have to solve a CAPCHA problem.
+                </p>
+                <h3 id="postsModifiers">Post modifiers</h3>
+                <p>
+                    While an unlogger user will be able to post a source code just for 30 days and public, the logged one will have
+                    the option to make it private, to set a password for, in case he want to add some colaborators, and also to set
+                    the desired time to keep his code on the platform.
+                </p>
+            </section>
+            <section typeof="sa:ReferenceList" id="referinte" role="doc-bibliography">   
+                <h2 id="bibliography">Bibliography</h2>
+                    <ol>
+                        <li property="schema:citation" role="doc-biblioentry" typeof="schema:WebPage" class="busaco"
+                            resource="https://profs.info.uaic.ro/~busaco/teach/courses/web">
+                            <span property="schema:author" typeof="schema:Person">
+                                    <span property="schema:firstName">Sabin Corneliu</span>
+                                    <span property="schema:LastName">Buraga</span>
+                            </span>,
+                            <cite property="schema:name">
+                                <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-film.html">
+                                    "Web technologies" 
+                                </a> from
+                                <span typeof="schema:Organization"
+                                    resource="https://www.uaic.ro">
+                                        <a href="https://www.uaic.ro">
+                                        <span property="schema:name">UAIC</span>
+                                    </a>
+                                </span>
+                            </cite>
+                        </li>
+                        <li property="schema:citation" role="doc-biblioentry" typeof="schema:WebPage" class="busaco"
+                            resource="https://www.w3schools.com">
+                            <cite property="schema:name">
+                                <a href="https://www.w3schools.com">
+                                    W3School
+                                </a> 
+                            </cite>
+                        </li>
+                    </ol> 
+            </section>
+        </article>
+    </body>
 </html>
