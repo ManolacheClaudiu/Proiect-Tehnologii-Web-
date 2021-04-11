@@ -1,5 +1,6 @@
 # Proiect-Tehnologii-Web
 Colaboratori: Manolache Claudiu & Tiprigran Tiberiu
+
 PIt (Paste It)
 Să se realizeze o aplicație Web prin intermediul căreia să se poată distribui cod sursă (scris intr-un anumit limbaj de programare). Vor putea posta atât utilizatorii autentificați, cât și utilizatorii anonimi.
 
