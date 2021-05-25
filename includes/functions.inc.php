@@ -68,7 +68,7 @@ function uidExists( $conn, $username, $email){
         $result = false;
         return $result;
     }
-    myssqli_stmt_close($stmt);
+    mysqli_stmt_close($stmt);
 
 }
 
@@ -102,6 +102,7 @@ function emptyInputLogin( $username, $pwd){
 }
 
 function loginUser($conn,$username,$pwd){
+    //session_start();
     $uidExists = uidExists( $conn, $username, $username);
 
     if($uidExists === false){
@@ -116,9 +117,11 @@ function loginUser($conn,$username,$pwd){
         exit();
     }
     else if($checkPwd === true){
+       
         session_start();
-        $_SESSION["userid"] = $uidExists["userId"];
-        $_SESSION["useruid"] = $uidExists["userUid"];
+       
+        $_SESSION["userid"] = $uidExists["usersId"];
+        $_SESSION["useruid"] = $uidExists["usersUid"];
         header("location: ../index.php");
         exit();
     }

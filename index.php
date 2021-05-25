@@ -6,13 +6,7 @@
 			include_once 'navigationMenu.php';
 			?>
 			<div class="CodeBox">
-			<?php
-						if(isset($_SESSION['useruid'])){
-							echo "<p>Hello there ". $_SESSION["useruid"]. "</p>";
-							
-						}
-					
-				   ?>
+		
              	 <form action="/action_page.php">
 					<label for="CodeBox"></label>
 					<textarea id="CodeBox" name="Codebox" placeholder="Write your code here!" rows="17" cols="500"></textarea>
