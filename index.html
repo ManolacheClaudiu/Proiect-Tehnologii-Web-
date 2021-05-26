@@ -1,129 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Paste-It WebApp</title>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-    <script src="myScript.js"></script>
-</head>
-<body>
-
-		<div class="UpperLayout">
-		
-            
-			<div class="logo">
-				<img src="logo.png" alt="logo">
-			</div>
-				<div class="login">
-					<a href="login.html">Login  Sign up </a>
-				</div>
-        </div>
-		
+<?php
+  include_once 'header.php';
+?>
 		<div class="MiddleLayout">
-			<div class="NavigationMenu">
-				
-					<label for="myCheck">
-					
-					Syntax <br>Highlighting
-				</label>
-				 <input type="checkbox" id="myCheck" onclick="highlight()">
-				<p id="text" style="display:none">Activated</p>
-			
-			
-					<br>	
-							<label for="Languages">
-							<br>Languages<br>
-							</label>
-								
-							<select id="Languages" name="Languages">
-								<option value="unselected">unselected</option>
-								<option value="html">html</option>
-								<option value="c">c</option>
-								<option value="c++">c++</option>
-								<option value="css">css</option>
-								<option value="java">java</option>
-							</select>
-				<ul>
-				
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-					<li><a href="#MyRepositories">MyRepositories</a></li>
-	
-				</ul>
-			</div>
-
+			<?php
+			include_once 'navigationMenu.php';
+			?>
 			<div class="CodeBox">
-             	 <form action="/action_page.php">
-					<label for="CodeBox"></label>
-					<textarea id="CodeBox" name="Codebox" placeholder="Write your code here!" rows="17" cols="500"></textarea>
-  					<br>
-					  <ul>
-						<li>
-							
-								<label for="Valability">
-									Valability<br>
-								</label>
-								<select id="Valability" name="Valability">
-									<option value="1">1 day</option>
-									<option value="2">2 days</option>
-									<option value="3">3 days</option>
-									<option value="4">4 days</option>
-									<option value="5">5 days</option>
-									<option value="6">6 days</option>
-									<option value="7">7 days</option>
-									<option value="8">8 days</option>
-									<option value="9">9 days</option>
-									<option value="10">10 days</option>
-									<option value="15">15 days</option>
-									<option value="20">20 days</option>
-									<option value="25">25 days</option>
-									<option value="30">30 days</option>
-								</select>							
-						</li>
-						<li>
-							
-								<label for="Visibility">
-								<br>Visibility<br>
-								</label>
-								<select id="Visibility" name="Visibility">
-									<option value="public">public</option>
-									<option value="private">private</option>
-								</select>
-							
-						</li>
-						<li>
-							
-							<label for="username">
-							<br>Colaborators<br>
-							</label>
-						
-							<input type="text" id="username" name="username" size="9" >
-						
-						</li>
-						<li>
-							
-								<label for="pwd"><br>Password:<br></label>
-								<input type="password" id="pwd" name="pwd" size="9"> 
-							
-						</li>
-					</ul>
-				<br>
-  					<input type="submit" value="Submit">
-				</form>
+			<section class="cod-form">
+			    <h2>Complete the box with your code</h2>
+             	 <form action="includes/codebox.inc.php" method="post">
+					<textarea id="codText" name="codText" placeholder="Write your code here!" rows="17" cols="500"></textarea>
+						<br><input type="text" name="codUsersName" size="11" placeholder=" Fill in with your username..."> 
+						<br><input type="text" name="codName" size="11" placeholder=" Name your file..."> 
+					<label for="codValability"> Valability<br></label>
+						<select id="codValability" name="codValability">
+							<option value="1">1 day</option>
+							<option value="2">2 days</option>
+							<option value="3">3 days</option>
+							<option value="4">4 days</option>
+							<option value="5">5 days</option>
+							<option value="6">6 days</option>
+							<option value="7">7 days</option>
+							<option value="8">8 days</option>
+							<option value="9">9 days</option>
+							<option value="10">10 days</option>
+							<option value="15">15 days</option>
+							<option value="20">20 days</option>
+							<option value="25">25 days</option>									
+							<option value="30">30 days</option>
+						</select>							
+			  	   <label for="codVisibility"><br>Visibility<br></label>
+						<select id="codVisibility" name="codVisibility">
+							<option value="public">public</option>
+							<option value="private">private</option>
+						</select>
+				   <br><input type="password" id="codPwd" name="codPwd" size="11" placeholder=" Password..."> <br>
+				   <button type="submit"  value="submit" name="submit" > Upload Code </button>
+				 </form>
+				<?php
+					//what we get from $_POST is what we can not see, what we get from $_GET is what we can see
+					if(isset($_GET["error"])){
+					if($_GET["error"] == "emptyinput"){
+						echo "<p> Fill in all fields</p>";
+					}
+					else  if($_GET["error"] == "stmtfailed"){
+						echo "<p> Something went wrong! Try again!</p>";
+					}
+					else  if($_GET["error"] == "none"){
+						echo "<p> You have uploaded your code</p>";
+					}
+					}
+				?>
+				</section>
             </div>
         </div>
        
-        <div class="LowerLayout">
-            <div class="Footer-box">
-              <h3> Copyright &#169; PasteIT</h3>
-            </div>
-        </div>
-</body>
-</html>
+<?php
+  include_once 'footer.php';
+?>
