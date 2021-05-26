@@ -1,4 +1,5 @@
 <?php
+session_start();
 function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat){
     $result;
     if(empty($name) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)){
@@ -96,7 +97,7 @@ function emptyInputLogin( $username, $pwd){
     return $result;
 }
 function loginUser($conn,$username,$pwd){
-    //session_start();
+    session_start();
     $uidExists = uidExists( $conn, $username, $username);
     if($uidExists === false){
         header("location: ../login.php?error=wronglogin");
@@ -129,15 +130,17 @@ function emptyInputCod($codText ,$codUsersName, $codName, $codValability,$codVis
     return $result;
 }
 function createCod($conn,$codText, $codUsersName, $codName, $codValability,$codVisibility ,$codPwd ){
-    // if(isset($_SESSION['useruid'])){
-    //     $codUsersName = $_SESSION["useruid"];
-    // }
-    // else
-    // {
-    //     $codUsersName = "anonim"; 
-    // }
+
+    if(!isset($_SESSION['useruid'])){
+        $codUsersName = "anonim"; 
+    }
+    else {
+        $codUsersName = $_SESSION["useruid"];
+    }
+
     $sql = "INSERT INTO cod (codText,codUsersName,codName, codValability,codVisibility,codPwd) VALUES (?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
+    //echo "conexiunea ".$conn;
     if( !mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../index.php?error=stmtfailed");
         exit();  
@@ -145,9 +148,12 @@ function createCod($conn,$codText, $codUsersName, $codName, $codValability,$codV
     //we make hash for passwords
     $hashedPwd = password_hash($codPwd,PASSWORD_DEFAULT);
     //second paramter contains an s for each string
+
+   
     mysqli_stmt_bind_param($stmt, "ssssss",$codText, $codUsersName, $codName, $codValability,$codVisibility ,$hashedPwd );
     mysqli_stmt_execute($stmt);
+    
     mysqli_stmt_close($stmt);
-    header("location: ../index.php?error=none");
+   header("location: ../index.php?error=none");
     exit();  
 }

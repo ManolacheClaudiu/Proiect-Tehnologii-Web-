@@ -2,10 +2,10 @@
 	session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 	<title>Paste-It WebApp</title>
-	<meta charset="UTF-8">
+	<meta charset="UTF8MB4_GENERAL_CI">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/myScript.js"></script>

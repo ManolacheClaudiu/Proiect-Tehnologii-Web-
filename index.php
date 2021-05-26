@@ -10,7 +10,7 @@
 			    <h2>Complete the box with your code</h2>
              	 <form action="includes/codebox.inc.php" method="post">
 					<textarea id="codText" name="codText" placeholder="Write your code here!" rows="17" cols="500"></textarea>
-						<br><input type="text" name="codUsersName" size="11" placeholder=" Fill in with your username..."> 
+						<br><input type="text" name="codUsersName" size="11" placeholder=" Sign you.."> 
 						<br><input type="text" name="codName" size="11" placeholder=" Name your file..."> 
 					<label for="codValability"> Valability<br></label>
 						<select id="codValability" name="codValability">
