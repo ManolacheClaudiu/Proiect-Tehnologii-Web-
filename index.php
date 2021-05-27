@@ -58,3 +58,15 @@
 <?php
   include_once 'footer.php';
 ?>
+
+<script >
+
+function highlight() {
+	var value = document.getElementById("codText").value;
+	console.log(value); 
+	var matches = value.match(/(include|int|and|to|by)+/g);
+	console.log(matches);
+	var matches = value.match(/&+/g);
+	console.log(matches);
+}
+</script>
