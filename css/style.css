@@ -215,8 +215,8 @@ div:empty:before
 
 div .code-input{
 	font-size: 15px;
-	color:#fff8e1;
-	background: skyblue;
+	color: rgb(0,0,0);
+	background: #F0FFFF;
     padding:10px;
     display: inline-block;
 }
