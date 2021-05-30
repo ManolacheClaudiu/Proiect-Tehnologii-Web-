@@ -28,17 +28,17 @@ function placeCaretAtEnd(el) {
     if (typeof window.getSelection != "undefined" &&
         typeof document.createRange != "undefined") {
         var range = document.createRange();
-        range.selectNodeContents(el);
-        range.collapse(false);
-        var sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
-    } else if (typeof document.body.createTextRange != "undefined") {
-        var textRange = document.body.createTextRange();
-        textRange.moveToElementText(el);
-        textRange.collapse(false);
-        textRange.select();
-    }
+    range.selectNodeContents(el);
+    range.collapse(false);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+} else if (typeof document.body.createTextRange != "undefined") {
+    var textRange = document.body.createTextRange();
+    textRange.moveToElementText(el);
+    textRange.collapse(false);
+    textRange.select();
+}
 }
 
 
@@ -87,10 +87,16 @@ function getRegexForLanguage(selectedLanguage) {
     };
     switch (selectedLanguage) {
         case "java":
-            result.keywordsRegex = /\b(abstract|continue|for|new|switch|assert|default|goto|package|synchronized|boolean|do|if|private|this|break|double|implements|protected|throw|byte|else|import|public|throws|case|enum|instanceof|return|transient|catch|extends|int|short|try|char|final|interface|static|void|class|finally|long|strictfp|volatile|const|float|native|super|while+)\b/g;
-            result.dataTypesRegex = /\b(Integer|String|Double|BigInteger|Float|Long|Byte|Short|Character+)\b/g;
+        result.keywordsRegex = /\b(abstract|continue|for|new|switch|assert|default|goto|package|synchronized|boolean|do|if|private|this|break|double|implements|protected|throw|byte|else|import|public|throws|case|enum|instanceof|return|transient|catch|extends|int|short|try|char|final|interface|static|void|class|finally|long|strictfp|volatile|const|float|native|super|while+)\b/g;
+        result.dataTypesRegex = /\b(Integer|String|Double|BigInteger|Float|Long|Byte|Short|Character+)\b/g;
         default:
 
     }
     return result;
+}
+
+
+function submitForm(){
+    var valueOfTextArea = document.getElementsByClassName("code-input")[0].innerText;
+    document.getElementById("hidden-input-code-id").value = valueOfTextArea;
 }

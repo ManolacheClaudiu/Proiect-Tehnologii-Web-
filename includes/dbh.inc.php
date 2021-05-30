@@ -1,4 +1,4 @@
-//database handler
+<!-- database handler -->
 <?php
 $serverName = "localhost";
 $dBUsername = "root";

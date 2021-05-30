@@ -215,8 +215,8 @@ div:empty:before
 
 div .code-input{
 	font-size: 15px;
-	color: rgb(0,0,0);
-	background: #F0FFFF;
+	color:#fff8e1;
+	background: skyblue;
     padding:10px;
     display: inline-block;
 }
@@ -227,4 +227,19 @@ div .code-input{
 
 .colored-string{
     color: green;
+}
+
+
+.error-class {
+	color: red;
+}
+.error-empty {
+	color: yellow;
+}
+
+body > div.MiddleLayout > div.NavigationMenu > ul{
+	overflow: scroll ;
+    overflow-x: hidden;
+	min-height: 435px;
+	max-height: 435px;
 }
