@@ -1,4 +1,11 @@
 window.onload = function() {
+    /* call delete after set number of days days  */
+    var oncePerHour = 3600 * 1000;
+    setInterval(function(){ 
+        deleteOlderPasteBins();
+    }, oncePerHour);
+
+    /* highlight on key*/
     var codeInputElementById = document.getElementById("code-input-id");
     codeInputElementById.onkeydown = function(e) {
         if (e.keyCode == 32) {
@@ -95,8 +102,48 @@ function getRegexForLanguage(selectedLanguage) {
     return result;
 }
 
-
-function submitForm(){
+function submitCodeForSave(){
     var valueOfTextArea = document.getElementsByClassName("code-input")[0].innerText;
     document.getElementById("hidden-input-code-id").value = valueOfTextArea;
+}
+
+function fetchCodeByCodeId(codeId){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementsByClassName("code-input")[0].removeAttribute("contenteditable");
+            document.getElementsByClassName("code-input")[0].innerText = this.responseText;
+        }
+    }
+    xhttp.open("GET", "getCodeById.php?codid=" + codeId, true);
+    xhttp.send(); 
+}
+
+
+function deleteCodeById(codeId){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            location.reload();  
+        }
+    }
+    xhttp.open("GET", "deleteCodById.php?codid=" + codeId, true);
+    xhttp.send();
+}
+
+function resetCodeInput(){
+    var editableDiv = document.getElementsByClassName("code-input")[0];
+    editableDiv.setAttribute("contenteditable", true);
+    editableDiv.innerText = "";
+}
+
+function deleteOlderPasteBins(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            location.reload();  
+        }
+    }
+    xhttp.open("GET", "deleteOldPasteBins.php", true);
+    xhttp.send();
 }

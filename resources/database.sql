@@ -18,5 +18,7 @@ CREATE TABLE `cod` (
   `codValability` int(11) NOT NULL,
   `codVisibility` varchar(128) NOT NULL,
   `codPwd` varchar(128) DEFAULT NULL,
-  `codeText` longtext NOT NULL
+  `codeText` longtext NOT NULL,
+  `creation_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

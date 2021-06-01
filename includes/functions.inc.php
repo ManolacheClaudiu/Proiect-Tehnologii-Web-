@@ -119,3 +119,7 @@ function loginUser($conn,$username,$pwd){
         exit();
     }
 }
+
+function getElementById(){
+    return 1;
+}

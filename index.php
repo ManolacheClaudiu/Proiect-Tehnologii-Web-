@@ -7,7 +7,7 @@ include_once 'header.php';
  ?>
  <div class="CodeBox">
      <section class="cod-form">
-         <form onsubmit="submitForm()" action="includes/codebox.inc.php" method="post">
+         <form onsubmit="submitCodeForSave()" action="includes/codebox.inc.php" method="post">
 
            <!-- Container for input code -->
            <div id="code-input-id" class="code-input" contenteditable data-placeholder="Place your code here sir..."></div>
@@ -62,4 +62,17 @@ include_once 'header.php';
 <?php
 include_once 'footer.php';
 ?>
+<style>
 
+#code-paragraph{
+    color: red;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    border: 1px solid darkgray;
+    box-shadow: 1px 1px 1px 0 lightgray inset;  
+    margin-top: 5px;
+    padding: 2px 3px;
+    width: 398px; 
+    height: 400px;  
+}
+</style>

@@ -22,6 +22,9 @@
         <option value="java">java</option>
     </select>
 
+    <br><br>
+    <button onclick="resetCodeInput();" class="btn"><i class="fa fa-folder"></i> Reset Input</button>
+
     <ul class="repositories-class">
         <?php
 
@@ -40,7 +43,11 @@
             if($rowcount > 0)
             {  
                 while($row = $result->fetch_assoc()) {
-                    echo '<li><a href="#" onclick="fetchCodeByCodeId();">'. $row["codName"] . '</a></li>';
+                    $codeId = $row["codId"];
+                    echo '<li><a href="#" onclick="fetchCodeByCodeId(' . $codeId . ');">'. $row["codName"] . '</a>
+                        <button onclick="deleteCodeById(' . $codeId . ');" class="btn"><i class="fa fa-trash"></i></button>
+                        <button onclick="editCode(' . $codeId . ');" class="btn"><i class="fa fa-edit"></i></button>
+                    </li>';
                 }
             }
         }
