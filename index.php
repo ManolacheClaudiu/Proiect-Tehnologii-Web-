@@ -15,6 +15,7 @@ include_once 'header.php';
            
            <br><input type="text" name="codName"  id = "codName-id" size="11" placeholder=" Name your file..."> 
            <label for="codValability"> Valability<br></label>
+
            <select id="codValability" name="codValability">
              <option value="1">1 day</option>
              <option value="2">2 days</option>
@@ -28,23 +29,55 @@ include_once 'header.php';
              <option value="10">10 days</option>
              <option value="15">15 days</option>
              <option value="20">20 days</option>
-             <option value="25">25 days</option>									
+             <option value="25">25 days</option>                                    
              <option value="30">30 days</option>
-         </select>							
+             <?php
+             if(isset($_SESSION['useruid'])){
+                echo '<option value="50">50 days</option>
+                <option value="75">75 days</option>
+                <option value="100">100 days</option>
+                <option value="200">200 days</option>                                   
+                <option value="365">1 year</option>';
+            }
+             ?>
+         </select>                          
          <label for="codVisibility"><br>Visibility<br></label>
-         <select id="codVisibility" name="codVisibility">
-             <option value="public">public</option>
-             <option value="private">private</option>
-         </select>
-         <br><input type="password" id="codPwd" name="codPwd" size="11" placeholder=" Password..."> <br>
-         <button type="submit" value="submit" name="submit">Save code</button>
+         <?php
+                if(isset($_SESSION['useruid'])){
+                    echo '<select id="codVisibility" name="codVisibility">
+                    <option value="public">public</option>
+                    <option value="private">private</option>
+                </select>';
+                }
+                else
+                {echo '<select id="codVisibility" name="codVisibility">
+                    <option value="public">public</option>
+                  
+                </select>';
 
+                }
+        ?>
+         <?php
+                if(!isset($_SESSION['useruid'])){
+                    echo '<input type="text" name="captcha" id="captcha" placeholder="Please write the captcha code from bellow" />
+                    <span  style="padding:0">
+   <img src="image.php" id="captcha_image" />
+  </span>';
+                }
+                else{
+                    echo '<br><input type="password" id="codPwd" name="codPwd" size="11" placeholder=" Set a password for your code..."> <br>';
+
+                }
+        ?>
+         
+         <button type="submit" id="save" value="submit" name="submit">Save code</button>
+         <br>
          <input type="text" name="hidden-code-id-name" id = "hidden-code-id" hidden></input>
          <input type="text" name="action" id ="action-id-hidden" hidden value="save"></input>
      </form>
 
      <?php
-					//what we get from $_POST is what we can not see, what we get from $_GET is what we can see
+                    //what we get from $_POST is what we can not see, what we get from $_GET is what we can see
      if(isset($_GET["error"])){
      $valueOfError = $_GET["error"];
      if($valueOfError != "none") {
@@ -66,15 +99,4 @@ include_once 'footer.php';
 ?>
 <style>
 
-#code-paragraph{
-    color: red;
-    -moz-appearance: textfield;
-    -webkit-appearance: textfield;
-    border: 1px solid darkgray;
-    box-shadow: 1px 1px 1px 0 lightgray inset;  
-    margin-top: 5px;
-    padding: 2px 3px;
-    width: 398px; 
-    height: 400px;  
-}
 </style>

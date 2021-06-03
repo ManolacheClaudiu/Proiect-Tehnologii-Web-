@@ -4,7 +4,7 @@
 	padding: 0;
 	font-family: Century Gothic;
   	font-size:100%;
-	color: darkgreen;
+	color: rgb(255, 255, 255);
 }
 body{
 	background-image: url(../img/background.jpg);
@@ -13,36 +13,6 @@ body{
 	background-size: cover;
 	background-position: center;
 }
-/* .logo img{
-	float:initial;
-	width: 150px;
-	height: auto;
-} */
-.UpperLayout div, .LowerLayout div{
-	padding: 10px;
-	text-align: center;
-}
-/*.MiddleLayout{
-	min-height: 90vh;
-    margin: 0;
-}
-.MiddleLayout div{
-    border:1px #ccc solid;
-    border-radius: 10px;
-    padding:10px;
-}*/
-/* .login {
-	display: flex;
-	order: 1;
-	padding: 10px;;
-}
-.register{
-    flex:50% ;
-	min-width: 50%;
-    order:2;
-   
-  } */
-
 .NavigationMenu{
 	flex:20%;
 	order: 1;
@@ -61,7 +31,7 @@ body{
 }
 input,textarea{
 	background-color: #d1d1d1;
-	border:2px solid rgb(0, 153, 115);
+	border:2px solid rgb(255, 255, 255);
 	border-radius: 12px;
 	color: black;	
 }
@@ -72,7 +42,6 @@ textarea {
     width: 100%;
     height: 100vh;
 }
-
 .colored-keywords{
 	color: blue;
 }
@@ -87,13 +56,8 @@ textarea {
 } */
 @media only screen and (min-width:800px){
 	.login ul li{
-		/* display: inline-block; */
-		/* display: flex; */
-		/* justify-content: space-evenly; */
 		display: inline-block;
 		width: 18%;
-	
-		/* flex-direction: column; */
 	}
     .MiddleLayout,.CodeBox{
         display: flex;
@@ -104,32 +68,17 @@ textarea {
         display: flex;
       }
 }
-/* .login{
-	display: flex;
-	
-} */
-/* div.login{
-    text-align: center;
-	font-size:100%;
-    padding: 1%;
-	
-} */
-/* login */
-/* .CodeBoxL{
-    flex:50% ;
-	min-width: 50%;
-    order:1;
-	font-size: 280%;
-	text-align: center;
-  } */
-  .RightSettingsL{
-	/* flex:50%; */
-    /* order: 2; */
+
+  .RightSettingsL,.about{
 	font-size: 200%;
 	text-align: center;	
 	padding-left: 1%;
 	padding-right: 1%;
 	
+}
+.about{
+	color: white;
+
 }
 .UpperLayoutL{
 	font-size: 280%;
@@ -139,15 +88,6 @@ textarea {
 	padding: 10px;
 	text-align: center;
 }
-/*.MiddleLayoutL{
-	min-height: 90vh;
-    margin: 0;
-}
-.MiddleLayoutL div{
-    border:1px #ccc solid;
-    border-radius: 10px;
-    padding:10px;
-  }*/
   input{
 	width: 100%;
   }
@@ -163,10 +103,9 @@ ul {
 	margin-top: 45px;
 	padding: 0;
 	width: 100%;
-	/* background-color: rgb(25,27,33); */
 }
 
-a {
+a{
 	display: block;
 	color: #000;
 	margin-top: 15px;
@@ -189,7 +128,6 @@ a:hover {
   background-color: rgb(134, 179, 0);
   color: white;
 }
-/* lkajdlksajdlskajdas */
 div:empty:before
    		{
     		content: attr(data-placeholder);
@@ -216,30 +154,40 @@ div:empty:before
 div .code-input{
 	font-size: 15px;
 	color:#fff8e1;
-	background: skyblue;
+	background: rgb(139, 141, 142);
     padding:10px;
     display: inline-block;
+	/* width: 100%;
+    height: 100%; */
 }
 
 .colored-span{
-    color: blue;
+    color: rgb(191, 191, 191);
 }
-
 .colored-string{
     color: green;
 }
-
-
 .error-class {
 	color: red;
 }
 .error-empty {
 	color: yellow;
 }
-
 body > div.MiddleLayout > div.NavigationMenu > ul{
 	overflow: scroll ;
     overflow-x: hidden;
 	min-height: 435px;
 	max-height: 435px;
+}
+
+#code-paragraph{
+    color: red;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    border: 1px solid darkgray;
+    box-shadow: 1px 1px 1px 0 lightgray inset;  
+    margin-top: 5px;
+    padding: 2px 3px;
+    width: 398px; 
+    height: 400px;  
 }

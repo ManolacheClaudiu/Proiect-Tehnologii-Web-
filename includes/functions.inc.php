@@ -47,6 +47,7 @@ function pwdMatch( $pwd, $pwdRepeat){
     }
     return $result;
 }
+
 function uidExists( $conn, $username, $email){
     $sql = "SELECT * FROM users WHERE usersUid = ? OR usersEmail = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -123,3 +124,50 @@ function loginUser($conn,$username,$pwd){
 function getElementById(){
     return 1;
 }
+
+//din codebox.inc
+
+function validateField($fieldValue, $errorMessageInCaseOfEmpty){
+    if(empty($fieldValue)){
+        header("location: ../index.php?error=" . $errorMessageInCaseOfEmpty);
+        exit();  
+    }
+}
+
+function saveCode($conn,$codText, $codUsersName, $codName, $codValability,$codVisibility ,$codPwd ){    
+    $hashedPwd = password_hash($codPwd, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO cod (codUsersName,codName, codValability,codVisibility,codPwd, codeText) VALUES ('$codUsersName', '$codName', $codValability,'$codVisibility' ,'$hashedPwd', '$codText')";
+      
+
+
+    if(mysqli_query($conn, $sql)){
+        header("location: ../index.php?error=none");
+        mysqli_close($conn);
+        exit();  
+    } else{
+        header("location: ../index.php?error=Error while saving code into database, please check.");
+        mysqli_close($conn);
+        exit(); 
+    } 
+}
+
+function updateCode($conn, $codText, $codName, $codValability,$codVisibility ,$codPwd, $codeId){
+    //TODO check if password is already hashed
+    $hashedPwd = password_hash($codPwd, PASSWORD_DEFAULT);
+
+    $updateQuery = 'UPDATE `cod` SET '. '`codName` = "' . $codName . '", `codeText` = "' 
+    . $codText . '", `codValability` = "' . $codValability . '", codVisibility = "' . $codVisibility  . '", codPwd = "' . $hashedPwd . '" WHERE `codId` = "' . $codeId . '";';
+
+    if(mysqli_query($conn, $updateQuery)){
+        header("location: ../index.php?error=none");
+        mysqli_close($conn);
+        exit();  
+    } else{
+        header("location: ../index.php?error=Error while saving code into database, please check.");
+        mysqli_close($conn);
+        exit(); 
+    } 
+}
+?>
+
