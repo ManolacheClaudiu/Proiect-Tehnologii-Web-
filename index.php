@@ -12,10 +12,8 @@ include_once 'header.php';
            <!-- Container for input code -->
            <div id="code-input-id" class="code-input" contenteditable data-placeholder="Place your code here sir..."></div>
            <input type="hidden" id="hidden-input-code-id" name="hidden-input-code" value="" />
-
-           <input type="text" name="codUsersName" size="11" placeholder=" Sign you.."> 
-
-           <br><input type="text" name="codName" size="11" placeholder=" Name your file..."> 
+           
+           <br><input type="text" name="codName"  id = "codName-id" size="11" placeholder=" Name your file..."> 
            <label for="codValability"> Valability<br></label>
            <select id="codValability" name="codValability">
              <option value="1">1 day</option>
@@ -39,8 +37,12 @@ include_once 'header.php';
              <option value="private">private</option>
          </select>
          <br><input type="password" id="codPwd" name="codPwd" size="11" placeholder=" Password..."> <br>
-         <button type="submit" value="submit" name="submit" >Upload Code</button>
+         <button type="submit" value="submit" name="submit">Save code</button>
+
+         <input type="text" name="hidden-code-id-name" id = "hidden-code-id" hidden></input>
+         <input type="text" name="action" id ="action-id-hidden" hidden value="save"></input>
      </form>
+
      <?php
 					//what we get from $_POST is what we can not see, what we get from $_GET is what we can see
      if(isset($_GET["error"])){

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<style>
+div:empty:before
+   		{
+    		content: attr(data-placeholder);
+    		color: grey;
+		}
+.textbox{
+	-moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    border: 1px solid gray;
+    font: medium -moz-fixed;
+    font: -webkit-small-control;
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 2px;
+    resize: both;
+    min-width:400px;
+    white-space:pre-wrap;
+}
+
+.colored-span{
+    color: blue;
+}
+
+.colored-string{
+    color: green;
+}
+
+
+
+</style>
+<body>
+
+<label for="myCheck">
+                
+                Syntax <br>Highlighting
+            </label>
+             <input type="checkbox" id="myCheck" onclick="highlight()">
+            <p id="text" style="display:none">Activated</p>
+
+ <br>	
+                        <label for="Languages">
+                        <br>Languages<br>
+                        </label>
+                            
+                        <select id="languages-id" name="Languages">
+                            <option value="unselected">unselected</option>
+                            <option value="html">html</option>
+                            <option value="c">c</option>
+                            <option value="c++">c++</option>
+                            <option value="css">css</option>
+                            <option value="java">java</option>
+                        </select>
+            <ul>
+
+<div class="textbox"  contenteditable data-placeholder="Scrieti aici!"></div>
+</body>
+</html>
+
+<script>
+    function highlight()
+{
+        var checkBox = document.getElementById("myCheck");
+        var result = document.getElementsByClassName("textbox")[0].innerText;
+        if (checkBox.checked == true)
+    {
+        var selectedLanguage = document.getElementById("languages-id").value;
+        var languageRegex = getRegexForLanguage(selectedLanguage);
+        console.log(languageRegex);
+        var splittedTextBySpace = result.split(/(\s+)/);
+        for (var i = splittedTextBySpace.length - 1; i >= 0; i--) 
+        {
+            console.log(splittedTextBySpace[i].match(languageRegex));
+            if (splittedTextBySpace[i].match(languageRegex) !== null)
+            {
+                console.log(splittedTextBySpace[i].match(languageRegex));
+                splittedTextBySpace[i] = '<span class="colored-span">' + splittedTextBySpace[i] + '</span>';  
+            }
+        }
+        var highlightedCode = splittedTextBySpace.join("");
+
+        console.log("highlightedCode", highlightedCode);
+
+        document.getElementsByClassName("textbox")[0].innerHTML = highlightedCode;
+    } 
+    else 
+    {
+        document.getElementsByClassName("textbox")[0].innerHTML = result.replace(/<\/?span[^>]*>/g, "");
+    }
+}
+
+
+
+function getRegexForLanguage(selectedLanguage) {
+    switch (selectedLanguage) {
+        case "java":
+            return /abstract|continue|for|new|switch|assert|default|goto|package|synchronized|boolean|do|if|private|this|break|double|implements|protected|throw|byte|else|import|public|throws|case|enum|instanceof|return|transient|catch|extends|int|short|try|char|final|interface|static|void|class|finally|long|strictfp|volatile|const|float|native|super|while\s+/g;
+        default:
+            return /"(.*?)"/g;
+    }
+}
+</script>
+
+

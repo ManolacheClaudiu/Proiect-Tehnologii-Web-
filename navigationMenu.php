@@ -27,16 +27,14 @@
 
     <ul class="repositories-class">
         <?php
+        require_once 'includes/dbh.inc.php';
 
         if(isset($_SESSION['useruid']))
         {
             $loggedUser =  $_SESSION['useruid'];
-
-            require_once 'includes/dbh.inc.php';
+            $loggedUserQuery = "SELECT * FROM `cod` WHERE `codUsersName` = '". $loggedUser . "';";
             
-            $query = "SELECT * FROM `cod` WHERE `codUsersName` = '". $loggedUser . "';";
-            
-            $result = mysqli_query($conn, $query);
+            $result = mysqli_query($conn, $loggedUserQuery);
             
             $rowcount=mysqli_num_rows($result);
             
@@ -44,14 +42,32 @@
             {  
                 while($row = $result->fetch_assoc()) {
                     $codeId = $row["codId"];
-                    echo '<li><a href="#" onclick="fetchCodeByCodeId(' . $codeId . ');">'. $row["codName"] . '</a>
-                        <button onclick="deleteCodeById(' . $codeId . ');" class="btn"><i class="fa fa-trash"></i></button>
-                        <button onclick="editCode(' . $codeId . ');" class="btn"><i class="fa fa-edit"></i></button>
+                    echo '<li>
+                    <a href="#" onclick="fetchCodeByCodeId(' . $codeId . ');">'. $row["codName"] . '</a>
+
+                    <button onclick="deleteCodeById(' . $codeId . ');" class="btn"><i class="fa fa-trash"></i></button>
+
+                    <button onclick="editCodeById(' . $codeId . ');" class="btn"><i class="fa fa-edit"></i></button>
+                    
+                    </li>';
+                }
+            }
+        } else{
+            $anonimQuery = "SELECT * FROM `cod` WHERE `codUsersName` = 'anonim';";
+
+            $result = mysqli_query($conn, $anonimQuery);
+            $rowcount=mysqli_num_rows($result);
+            
+            if($rowcount > 0)
+            {  
+                while($row = $result->fetch_assoc()) {
+                    $codeId = $row["codId"];
+                    echo '<li>
+                    <a href="#" onclick="fetchCodeByCodeId(' . $codeId . ');">'. $row["codName"] . '</a>
                     </li>';
                 }
             }
         }
-
         ?>
     </ul>
 </div>

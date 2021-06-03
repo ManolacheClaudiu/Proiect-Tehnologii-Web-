@@ -147,3 +147,25 @@ function deleteOlderPasteBins(){
     xhttp.open("GET", "deleteOldPasteBins.php", true);
     xhttp.send();
 }
+
+function editCodeById(codeId){
+    var populateFieldsHttp = new XMLHttpRequest();
+    populateFieldsHttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var responseAsJson = JSON.parse(this.responseText);
+            document.getElementsByClassName("code-input")[0].setAttribute("contenteditable", true);
+
+            document.getElementsByClassName("code-input")[0].innerText = responseAsJson.codeText;
+            document.getElementById("codName-id").value = responseAsJson.codName;
+            document.getElementById("codPwd").value =  responseAsJson.codPwd;
+            document.getElementById("codValability").value = responseAsJson.codValability;
+            document.getElementById("codVisibility").value = responseAsJson.codVisibility;
+
+            document.getElementById("action-id-hidden").value= "update";
+
+            document.getElementById("hidden-code-id").value = codeId;
+        }
+    }
+    populateFieldsHttp.open("GET", "getAllCodeInformationById.php?codid=" + codeId, true);
+    populateFieldsHttp.send();
+}
