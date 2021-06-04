@@ -138,8 +138,7 @@ function saveCode($conn,$codText, $codUsersName, $codName, $codValability,$codVi
     $hashedPwd = password_hash($codPwd, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO cod (codUsersName,codName, codValability,codVisibility,codPwd, codeText) VALUES ('$codUsersName', '$codName', $codValability,'$codVisibility' ,'$hashedPwd', '$codText')";
-      
-
+    
 
     if(mysqli_query($conn, $sql)){
         header("location: ../index.php?error=none");

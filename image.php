@@ -12,5 +12,4 @@ $font = dirname(__FILE__) . '/fonts/planob1.ttf';
 imagettftext($image, 20, 0, 60, 28, $txtColor, $font, $randomNumber);
 imagepng($image);
 imagedestroy($image);
-
 ?>
