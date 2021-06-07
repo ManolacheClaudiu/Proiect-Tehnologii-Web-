@@ -7,6 +7,7 @@
         <form action="includes/login.inc.php" method="post">
             <input type="text" name="uid" placeholder="Username/Email..." >
             <input type="password" name="pwd" placeholder="Password..." > 
+            <br>
             <button type="submit" value="submit"  name="submit">Log In</button>
         </form> 
 		</section>

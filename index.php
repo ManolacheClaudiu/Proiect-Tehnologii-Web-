@@ -14,8 +14,9 @@ include_once 'header.php';
            <input type="hidden" id="hidden-input-code-id" name="hidden-input-code" value="" />
            
            <br><input type="text" name="codName"  id = "codName-id" size="11" placeholder=" Name your file..."> 
+           <br><br>
            <label for="codValability"> Valability<br></label>
-
+           
            <select id="codValability" name="codValability">
              <option value="1">1 day</option>
              <option value="2">2 days</option>
@@ -40,7 +41,8 @@ include_once 'header.php';
                 <option value="365">1 year</option>';
             }
              ?>
-         </select>                          
+         </select>       
+         <br>                   
          <label for="codVisibility"><br>Visibility<br></label>
          <?php
                 if(isset($_SESSION['useruid'])){
@@ -57,9 +59,10 @@ include_once 'header.php';
 
                 }
         ?>
+        <br><br>
          <?php
                 if(!isset($_SESSION['useruid'])){
-                    echo '<input type="text" name="captcha" id="captcha" placeholder="Please write the captcha code from bellow" />
+                    echo '<input type="text" name="captcha" id="captcha" placeholder="Please write the captcha code from bellow" /><br>
                     <span  style="padding:0">
    <img src="image.php" id="captcha_image" />
   </span>';
@@ -69,7 +72,7 @@ include_once 'header.php';
 
                 }
         ?>
-         
+         <br><br>
          <button type="submit" id="save" value="submit" name="submit">Save code</button>
          <br>
          <input type="text" name="hidden-code-id-name" id = "hidden-code-id" hidden></input>

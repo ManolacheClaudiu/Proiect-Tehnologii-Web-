@@ -1,30 +1,36 @@
 /* index */
 *{
-	margin: 0;
-	padding: 0;
+	
+	margin: 1px;
+	padding: 1px;
 	font-family: Century Gothic;
   	font-size:100%;
 	color: rgb(255, 255, 255);
+	margin-top: none;
 }
 body{
 	background-image: url(../img/background.jpg);
-	width: 100%;
-  	height: 100vh;
+	width: 99%;
+  	/* height: 100vh; */
+	  margin: 1px;
+	  padding: 1px;
 	background-size: cover;
 	background-position: center;
 }
 .NavigationMenu{
-	flex:20%;
+	margin: 1px;
+	padding: 1px;
+	flex:15%;
 	order: 1;
-	background-color: rgb(25,27,33);
+	background-color: #120e0eca;
 }
 .CodeBox{
     flex:80% ;
-	min-width: 50%;
+	min-width: 70vw;
     order:2;
     min-height: 85vh;
-	background-color: rgb(25,27,33);
-	
+	background-color: #120e0eca;
+
   }
 .CodeBox textarea{
  padding: 1%;
@@ -39,34 +45,15 @@ textarea {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    width: 100%;
+	width: 100%;
     height: 100vh;
+
 }
 .colored-keywords{
 	color: blue;
 }
 .colored-datatypes{
 	color: red;
-}
-/* @media only screen and (max-width:800px){
-	.login ul li{
-		display: flex;
-		 width: 100%; 
-	}
-} */
-@media only screen and (min-width:800px){
-	.login ul li{
-		display: inline-block;
-		width: 18%;
-	}
-    .MiddleLayout,.CodeBox{
-        display: flex;
-      }  
-}
-@media only screen and (min-width:600px){
-    .MiddleLayout,.CodeBox{
-        display: flex;
-      }
 }
 
   .RightSettingsL,.about{
@@ -80,22 +67,25 @@ textarea {
 	color: white;
 
 }
-.UpperLayoutL{
+/* .UpperLayoutL{
 	font-size: 280%;
 	text-align: center;	
-}
-.UpperLayoutL div{
-	padding: 10px;
+} */
+/* .UpperLayoutL div{
+	padding: 1px;
 	text-align: center;
-}
-  input{
-	width: 100%;
+} */
+  input,select{
+	width: 50%;
   }
 @media only screen and (min-width:1200px){
     .MiddleLayoutL{
         display: flex;
       }
 
+}
+button{
+	color: rgb(0, 153, 115);
 }
 ul {
 	list-style-type: none;
@@ -134,12 +124,13 @@ div:empty:before
     		color: grey;
 		}
 .code-input{
-	font-size: large;
+	/* asta facea probleme la delete si enter */
+	/* font-size: large;
 	-moz-appearance: textfield-multiline;
     -webkit-appearance: textarea;
     border: 1px solid gray;
     font: medium -moz-fixed;
-    font: -webkit-small-control;
+    font: -webkit-small-control; */
 
     overflow-y: auto;
     padding: 2px;
@@ -147,22 +138,31 @@ div:empty:before
     white-space:pre-wrap;
     /*width: 100%;
     height: 100%;*/
-    width: 950px;
-    height: 400px;
+    /* width: 950px;
+    height: 400px; */
+	min-width: 70vw;
+	max-width: 80vw;
+    height: 75vh;
 }
 
 div .code-input{
 	font-size: 15px;
-	color:#fff8e1;
-	background: rgb(139, 141, 142);
+	color:#000000;
+	background-color: #d1d1d1db;
     padding:10px;
     display: inline-block;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-width: 80vw;
+	max-width: 70vw;
+    /* height: 75vh; */
 	/* width: 100%;
     height: 100%; */
 }
 
 .colored-span{
-    color: rgb(191, 191, 191);
+    color: rgb(255, 0, 0);
 }
 .colored-string{
     color: green;
@@ -190,4 +190,33 @@ body > div.MiddleLayout > div.NavigationMenu > ul{
     padding: 2px 3px;
     width: 398px; 
     height: 400px;  
+}
+/* @media only screen and (max-width:800px){
+	.login ul li{
+		display: flex;
+		 width: 100%; 
+	}
+} */
+@media only screen and (min-width:800px){
+	.login ul li{
+		display: inline-block;
+		width: 18%;
+	}
+    .MiddleLayout,.CodeBox{
+        display: flex;
+      }  
+	  
+}
+@media only screen and (min-width:600px){
+    .MiddleLayout,.CodeBox{
+        display: flex;
+      }
+
+	  .code-input{
+		padding: none;
+		min-width: 100vw;
+		height: 75vh;
+	}
+	
+
 }

@@ -6,12 +6,14 @@
     
     
     <section role="doc-introduction">
+    <br>
                     <h2 id="introduction"> Introduction</h2>
                     <p> 
                         PasteIt is an web application designed for to share code. The application suports also to store it 
                         for a set amount of time. The source code could be considered as text or as code in Html, Css, Java, C and C++.
                         It can be used by an unlogged user, but the logged one has more functionalities.
                     </p>
+                    <br>
                     <h3 id="purpose">Purpose</h3>
                     <p>  
                         PasteIt is an web application, easy to use, designed to be helpfull to the ones which want to
@@ -23,7 +25,7 @@
                         The product has the purpose to bring an easy to use environment, designed in dark colors, to protect as much we can the eyes,
                         The application is designed to be intuitive and just for its concise purpose: share code fast and easily.     
                     </p>
-                    
+                    <br>
                     <h3 id="conventions">Conventions</h3>
                     <p>
                         Meant to be easy to use, the application doesn't have a lot of functionalities and it makes it even faster.
@@ -33,7 +35,7 @@
                     </p>
                   
             <section>
-                <h2 id="description">Description</h2>
+                <br>
                 <h3 id= "perspective">Perspective</h3>
                 <p>
                 Our web application is not meant to be a tool for working in big projects. 
@@ -44,8 +46,9 @@
                 the privacy of the users code.
                 </p> 
             <section id="authors"  typeof="sa:AuthorsList"> 
+              <br>
                     <h2 id="author"> Authors</h2>
-                    <ol> 
+                    <ul> 
                         <li property = "schema:author" typeof="sa:ContributorRole"> 
 
                                     <span property= "schema:FirstName" >Claudiu</span>
@@ -57,7 +60,7 @@
                                     <span property= "schema:LastName" >Tiprigran</span>
                       
                         </li>
-                    </ol>
+                    </ul>
             </section>
 </div>
 <?php
