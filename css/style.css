@@ -78,12 +78,7 @@ textarea {
   input,select{
 	width: 50%;
   }
-@media only screen and (min-width:1200px){
-    .MiddleLayoutL{
-        display: flex;
-      }
 
-}
 button{
 	color: rgb(0, 153, 115);
 }
@@ -217,6 +212,159 @@ body > div.MiddleLayout > div.NavigationMenu > ul{
 		min-width: 100vw;
 		height: 75vh;
 	}
-	
+}
 
+@media only screen and (min-width:1200px){
+    .MiddleLayoutL{
+        display: flex;
+      }
+
+}
+div#code-input-id {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+ul.repositories-class {
+    min-height: unset !important;
+}
+
+
+
+section.cod-form form input {
+	width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+section.cod-form form select {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+	color: #000;
+}
+
+section.cod-form form input:nth-of-type(2) {
+    margin-top: 16px;
+}
+
+section.cod-form form input[type=password] {
+    margin-top: -10px;
+}
+
+section.cod-form button {
+    margin-top: -20px;
+    padding: 10px 15px;
+    background: #282e32;
+    border: 2px solid #6e7176;
+    color: #fff;
+    font-size: 21px;
+}
+input#captcha {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+section.cod-form form input, section.cod-f select {
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.UpperLayout ul a {
+    text-align: center;
+    color: #fff;
+    border-color: #fff;
+    border-radius: 7px;
+}
+.NavigationMenu button {
+	width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #282e32;
+    border: 1px solid #6e7176;
+}
+
+.NavigationMenu button i {
+    color: rgb(0, 153, 115);
+}
+
+.NavigationMenu select {
+	width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    color: #fff;
+    background: #282e32;
+    border-color: #6e7176;
+}
+
+.NavigationMenu {
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.NavigationMenu input:first-of-type {float: right;width: unset;}
+
+section.signup-form input , .login-form input{
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+}
+
+section.signup-form button, .login-form button {
+    padding: 10px 20px;
+}
+
+section.signup-form h2, .login-form h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+ul.repositories-class>li>a {
+    color: #fff;
+    border-color: #fff;
+    margin-bottom: 10px;
+    margin-top: 3px;
+}
+
+ul.repositories-class button {
+    width: unset;
+    display: inline-block;
+    margin-bottom: 0px;
+    background:transparent;
+    border:none;
+    margin-top:-10px;
+}
+ul.repositories-class button i{
+    color: #fff;
+}
+/* form {} */
+
+section.cod-form select, section.cod-form input, div#code-input-id {
+    background: #282d33;
+    color: #fff !important;
+    border-top: none;
+    border-bottom: 2px solid #6e7176;
+    border-left: 0;
+    border-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+section.cod-form input::placeholder,  div#code-input-id:before {
+    color: #fff;
+}
+/*sterge border-ul albastru cand dai click pe elemente, de exemplu inputuri*/
+*:focus {
+    outline: none;
+}
+@media screen and (max-width:760px){ 
+    section.signup-form input, section.login-form input {
+        width:95%;
+        font-size:23px;
+    }
+    section.signup-form button, section.login-form button{
+       font-size:23px;
+    }
 }

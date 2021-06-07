@@ -23,3 +23,4 @@ CREATE TABLE `cod` (
   `creation_date` date NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`codId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Set AUTOCOMMIT=false;
