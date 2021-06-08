@@ -15,7 +15,7 @@
 		<div class="UpperLayout">
 				<div class="login">
 				<ul>
-				   <li><img id="logo" src="img/logo.png" alt="logo"></li>
+				   <li><img src="img/logo.png" alt="logo" style="width: 15%;height: 15%;"></li>
 				   <li> <a href="index.php"> Home </a></li>
 				   <li> <a href="about.php"> About us </a></li>
 				   <?php

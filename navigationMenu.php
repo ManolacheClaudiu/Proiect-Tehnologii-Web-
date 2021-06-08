@@ -102,7 +102,8 @@
         ?>
     </ul>
 
-    <label for="collabs">Your Collaborators:</label>
+    <hr id="my-hr" />
+    <label for="collabs">Collabs:</label>
     <hr id="my-hr" />
 
     <ul id="collaborators-list-id" class="repositories-class">
