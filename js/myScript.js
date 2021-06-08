@@ -135,6 +135,7 @@ function resetCodeInput(){
     var editableDiv = document.getElementsByClassName("code-input")[0];
     editableDiv.setAttribute("contenteditable", true);
     editableDiv.innerText = "";
+
 }
 
 function deleteOlderPasteBins(){
@@ -168,4 +169,37 @@ function editCodeById(codeId){
     }
     populateFieldsHttp.open("GET", "getAllCodeInformationById.php?codid=" + codeId, true);
     populateFieldsHttp.send();
+}
+
+function addCollaborator(){
+    var codeId = document.getElementById("collab-hidden-code-id").value;
+    var collabUsername =document.getElementById("collaborators-select-id").value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            location.reload(); 
+        }
+    }
+    xhttp.open("POST", "addCollaborator.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhttp.send("codeId="+ codeId + "&collabUsername=" + collabUsername);
+}
+
+
+function fetchCollaboratorsForCodeId(codeId){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+
+            var liElements = "";
+            response.forEach(element =>{
+                liElements = liElements + '<li><a class="btn-class-fetched" href="#">' + element.collaboratorUserId + '</a></li>';
+             });
+
+            document.getElementById("collaborators-list-id").innerHTML=liElements;
+        }
+    }
+    xhttp.open("GET", "getCollaboratorsForCodeId.php?codeId="+codeId, true);
+    xhttp.send();
 }

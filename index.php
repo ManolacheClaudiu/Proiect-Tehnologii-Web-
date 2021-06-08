@@ -40,59 +40,59 @@ include_once 'header.php';
                 <option value="200">200 days</option>                                   
                 <option value="365">1 year</option>';
             }
-             ?>
-         </select>       
-         <br>                   
-         <label for="codVisibility"><br>Visibility<br></label>
-         <?php
-                if(isset($_SESSION['useruid'])){
-                    echo '<select id="codVisibility" name="codVisibility">
-                    <option value="public">public</option>
-                    <option value="private">private</option>
-                </select>';
-                }
-                else
-                {echo '<select id="codVisibility" name="codVisibility">
-                    <option value="public">public</option>
-                  
-                </select>';
+            ?>
+        </select>       
+        <br>                   
+        <label for="codVisibility"><br>Visibility<br></label>
+        <?php
+        if(isset($_SESSION['useruid'])){
+            echo '<select id="codVisibility" name="codVisibility">
+            <option value="public">public</option>
+            <option value="private">private</option>
+            </select>';
+        }
+        else
+            {echo '<select id="codVisibility" name="codVisibility">
+        <option value="public">public</option>
+        
+        </select>';
 
-                }
-        ?>
-        <br><br>
-         <?php
-                if(!isset($_SESSION['useruid'])){
-                    echo '<input type="text" name="captcha" id="captcha" placeholder="Please write the captcha code from bellow" /><br>
-                    <span  style="padding:0">
-   <img src="image.php" id="captcha_image" />
-  </span>';
-                }
-                else{
-                    echo '<br><input type="password" id="codPwd" name="codPwd" size="11" placeholder=" Set a password for your code..."> <br>';
-
-                }
-        ?>
-         <br><br>
-         <button type="submit" id="save" value="submit" name="submit">Save code</button>
-         <br>
-         <input type="text" name="hidden-code-id-name" id = "hidden-code-id" hidden></input>
-         <input type="text" name="action" id ="action-id-hidden" hidden value="save"></input>
-     </form>
-
-     <?php
-                    //what we get from $_POST is what we can not see, what we get from $_GET is what we can see
-     if(isset($_GET["error"])){
-     $valueOfError = $_GET["error"];
-     if($valueOfError != "none") {
-        echo '<p class="error-class">' . $valueOfError . '</p>';
     }
+    ?>
+    <br><br>
+    <?php
+    if(!isset($_SESSION['useruid'])){
+        echo '<input type="text" name="captcha" id="captcha" placeholder="Please write the captcha code from bellow" /><br>
+        <span  style="padding:0">
+        <img src="image.php" id="captcha_image" />
+        </span>';
+    }
+    else{
+        echo '<br><input type="password" id="codPwd" name="codPwd" size="11" placeholder=" Set a password for your code..."> <br>';
 
-     if($_GET["error"] == "none"){
-      echo '<p class="error-empty"> You have successfully uploaded your code.</p>';
-     }
- }  
+    }
+    ?>
+    <br><br>
+    <button type="submit" id="save" value="submit" name="submit">Save code</button>
+    <br>
+    <input type="text" name="hidden-code-id-name" id = "hidden-code-id" hidden></input>
+    <input type="text" name="action" id ="action-id-hidden" hidden value="save"></input>
+</form>
 
-  ?>
+<?php
+                    //what we get from $_POST is what we can not see, what we get from $_GET is what we can see
+if(isset($_GET["error"])){
+ $valueOfError = $_GET["error"];
+ if($valueOfError != "none") {
+    echo '<p class="error-class">' . $valueOfError . '</p>';
+}
+
+if($_GET["error"] == "none"){
+  echo '<p class="error-empty"> You have successfully uploaded your code.</p>';
+}
+}  
+
+?>
 </section>
 </div>
 </div>
@@ -100,6 +100,3 @@ include_once 'header.php';
 <?php
 include_once 'footer.php';
 ?>
-<style>
-
-</style>

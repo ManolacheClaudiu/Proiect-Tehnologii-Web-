@@ -7,10 +7,12 @@ CREATE TABLE `users` (
    PRIMARY KEY (`usersId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `colab` (
-  `codId` int(11) NOT NULL,
-  `codUsersId` int(11) NOT NULL
+CREATE TABLE `collaborators` (
+  `codeId` int(11) NOT NULL,
+  `collaboratorUserId` varchar(60) NOT NULL,
+  `pkCollab` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 CREATE TABLE `cod` (
   `codId` int(11) NOT NULL AUTO_INCREMENT,
@@ -23,4 +25,3 @@ CREATE TABLE `cod` (
   `creation_date` date NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`codId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-Set AUTOCOMMIT=false;
