@@ -107,7 +107,7 @@ function submitCodeForSave(){
     document.getElementById("hidden-input-code-id").value = valueOfTextArea;
 }
 
-function fetchCodeByCodeId(codeId){
+function fetchCodeByCodeId(codeId,codName){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -117,6 +117,23 @@ function fetchCodeByCodeId(codeId){
     }
     xhttp.open("GET", "getCodeById.php?codid=" + codeId, true);
     xhttp.send(); 
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+
+            var liElements = "";
+            response.forEach(element =>{
+                liElements = liElements + '<li><a class="btn-class-fetched" href="#">' + element.collaboratorUserId + '</a></li>';
+             });
+
+            document.getElementById("file-version").innerHTML=liElements;
+        }
+    }
+    xhttp.open("GET", "getCodeVersions.php?codName="+codName, true);
+    xhttp.send();
+
 }
 
 

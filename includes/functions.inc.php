@@ -1,5 +1,8 @@
+
 <?php
 session_start();
+
+
 function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat){
     $result;
     if(empty($name) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)){
@@ -155,8 +158,9 @@ function updateCode($conn, $codText, $codName, $codValability,$codVisibility ,$c
     //TODO check if password is already hashed
     $hashedPwd = password_hash($codPwd, PASSWORD_DEFAULT);
 
-    $updateQuery = 'UPDATE `cod` SET '. '`codName` = "' . $codName . '", `codeText` = "' 
-    . $codText . '", `codValability` = "' . $codValability . '", codVisibility = "' . $codVisibility  . '", codPwd = "' . $hashedPwd . '" WHERE `codId` = "' . $codeId . '";';
+    // $updateQuery = 'UPDATE `cod` SET '. '`codName` = "' . $codName . '", `codeText` = "' 
+    // . $codText . '", `codValability` = "' . $codValability . '", codVisibility = "' . $codVisibility  . '", codPwd = "' . $hashedPwd . '" WHERE `codId` = "' . $codeId . '";';
+    $updateQuery = "INSERT INTO cod (codUsersName,codName, codValability,codVisibility,codPwd, codeText) VALUES ('$codUsersName', '$codName', $codValability,'$codVisibility' ,'$hashedPwd', '$codText')";
 
     if(mysqli_query($conn, $updateQuery)){
         header("location: ../index.php?error=none");
@@ -168,5 +172,69 @@ function updateCode($conn, $codText, $codName, $codValability,$codVisibility ,$c
         exit(); 
     } 
 }
+
+function addColab($conn,$codeId,$collabId){
+    $sql = "INSERT INTO collaborators (codeId,collaboratorUserId) VALUES (?,?)";
+    $stmt = mysqli_stmt_init($conn);
+    if( !mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../collaboratorController.php?error=stmtfailed");
+        exit();  
+    }
+    //we make hash for passwords
+    // $hashedPwd = password_hash($pwd,PASSWORD_DEFAULT);
+    //second paramter contains an s for each string
+    mysqli_stmt_bind_param($stmt, "ss", $codeId, $collabId );
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    
+    header("location: ../collaboratorController.php?error=none");
+    exit();  
+}
+function colabExists( $conn, $codeId, $collabId){
+    $sql = "SELECT * FROM collaborators WHERE codeId = ? AND collaboratorUserId = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if( !mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../collaboratorController.php?error=stmtfailed");
+        exit();  
+    }
+    //second paramter contains an s for each string
+    mysqli_stmt_bind_param($stmt, "ss", $codeId, $collabId );
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if( $row = (mysqli_fetch_assoc($resultData))){
+        return $row;
+    }
+    else{
+        $result = false;
+        return $result;
+    }
+    mysqli_stmt_close($stmt);
+}
+function nameExists( $conn, $codeFilename){
+    $sql = "SELECT codName FROM cod WHERE codName = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if( !mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../collaboratorController.php?error=stmtfailed");
+        exit();  
+    }
+    //second paramter contains an s for each string
+    mysqli_stmt_bind_param($stmt, "s", $codeFilename);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if( $row = (mysqli_fetch_assoc($resultData))){
+        return $row;
+    }
+    else{
+        $result = false;
+        return $result;
+    }
+    mysqli_stmt_close($stmt);
+}
+
 ?>
+
 

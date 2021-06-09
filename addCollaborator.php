@@ -1,7 +1,7 @@
-<?php
+<!-- <?php
 require_once 'includes/dbh.inc.php';
-
-$codeId = $_POST['codeId'];
+require_once 'includes/functions.inc.php'
+$codeId = $_POST['codId'];
 $collaboratorUsername = $_POST['collabUsername'];
 
 $sql = "INSERT INTO `collaborators` (codeId,collaboratorUserId) VALUES ('$codeId', '$collaboratorUsername')";
@@ -15,4 +15,4 @@ if(mysqli_query($conn, $sql)){
 	mysqli_close($conn);
 	exit(); 
 } 
-?>
+?> -->

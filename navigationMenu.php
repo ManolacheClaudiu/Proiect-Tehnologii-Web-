@@ -42,8 +42,11 @@
             {  
                 while($row = $result->fetch_assoc()) {
                     $codeId = $row["codId"];
+                    $codName = $row["codName"];
+                    echo"<p>$codeId</p>";
                     echo '<li>
-                    <a class="btn-class-fetched" href="#" onclick="fetchCodeByCodeId(' . $codeId . ');">'. $row["codName"] . '</a>
+                  
+                    <a class="btn-class-fetched" href="#" onclick="fetchCodeByCodeId( '.$codeId.','.$codName.')">'. $row["codName"] . '</a>
 
                     <button onclick="deleteCodeById(' . $codeId . ');" class="fa fa-trash red"></button>
 
@@ -102,12 +105,17 @@
         ?>
     </ul>
 
-    <hr id="my-hr" />
-    <label for="collabs">Collabs:</label>
+    <label for="collabs">Your Collaborators:</label>
     <hr id="my-hr" />
 
     <ul id="collaborators-list-id" class="repositories-class">
 
+    </ul>
+    <label for="collabs">File's versions:</label>
+    <hr id="my-hr" />
+
+    <ul id="file-version" class="repositories-class">
+        
     </ul>
     
 </div>

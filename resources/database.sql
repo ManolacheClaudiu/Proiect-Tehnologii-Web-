@@ -9,8 +9,8 @@ CREATE TABLE `users` (
 
 CREATE TABLE `collaborators` (
   `codeId` int(11) NOT NULL,
-  `collaboratorUserId` varchar(60) NOT NULL,
-  `pkCollab` int(11) NOT NULL
+  `collaboratorUserId` varchar(60) NOT NULL ,
+  `pkCollab` int(11) NOT NULL PRIMARY key AUTO_INCREMENT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
