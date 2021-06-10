@@ -2,7 +2,7 @@
 require_once 'includes/dbh.inc.php';
 
 $requestedCodId = $_GET['codeId'];
-$query ="SELECT `creation_date`,codId FROM `cod` WHERE codName in (Select codName from cod where `codId` = " . $requestedCodId . ");";
+$query ="SELECT `codPwd` FROM `cod` where `codId` = " . $requestedCodId . ");";
 
 $result = mysqli_query($conn, $query);
 $rowcount=mysqli_num_rows($result);

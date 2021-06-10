@@ -33,7 +33,7 @@ include_once 'header.php';
                             }
                         ?>
                     </select>
-                <button type="submit" value="submit"  name="submit">Add Collaborator</button>
+                <button class="btn" type="submit" value="submit"  name="submit">Add Collaborator</button>
             </form>
          </div>
         <?php

@@ -107,7 +107,7 @@ function submitCodeForSave(){
     document.getElementById("hidden-input-code-id").value = valueOfTextArea;
 }
 
-function fetchCodeByCodeId(codeId,codName){
+function fetchCodeByCodeId(codeId){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -117,23 +117,6 @@ function fetchCodeByCodeId(codeId,codName){
     }
     xhttp.open("GET", "getCodeById.php?codid=" + codeId, true);
     xhttp.send(); 
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
-
-            var liElements = "";
-            response.forEach(element =>{
-                liElements = liElements + '<li><a class="btn-class-fetched" href="#">' + element.collaboratorUserId + '</a></li>';
-             });
-
-            document.getElementById("file-version").innerHTML=liElements;
-        }
-    }
-    xhttp.open("GET", "getCodeVersions.php?codName="+codName, true);
-    xhttp.send();
-
 }
 
 
@@ -152,7 +135,6 @@ function resetCodeInput(){
     var editableDiv = document.getElementsByClassName("code-input")[0];
     editableDiv.setAttribute("contenteditable", true);
     editableDiv.innerText = "";
-
 }
 
 function deleteOlderPasteBins(){
@@ -219,4 +201,51 @@ function fetchCollaboratorsForCodeId(codeId){
     }
     xhttp.open("GET", "getCollaboratorsForCodeId.php?codeId="+codeId, true);
     xhttp.send();
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+
+            var liElements = "";
+            response.forEach(element =>{
+                // + '<li><a class="btn-class-fetched" href="#">' +"data=" +element.creation_date+ " id="+element.codId+'</a></li>'
+                liElements = liElements +'<li>'+ '<a class="btn-class-fetched" href="#" onclick="pwdProtect('+element.codId+');fetchCodeByCodeId( '+element.codId+')">'+"data=" +element.creation_date+ " id="+element.codId+ '</a>'+
+                '<button onclick="deleteCodeById(' +element.codId+ ');" class="fa fa-trash red"></button>'+
+                '<button onclick="editCodeById(' +element.codId+ ');" class="fa fa-edit green"></button>'
+                ;
+             
+            });
+
+            document.getElementById("file-version").innerHTML=liElements;
+        }
+    }
+    xhttp.open("GET", "getCodeVersions.php?codeId="+codeId, true);
+    xhttp.send();
 }
+function pwdProtect(codeId) {
+
+    var txt;
+    var pwd = prompt("Please enter the password for this file in order to edit it");
+    document.getElementById("demo").innerHTML = txt;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+
+            var liElements = "";
+            response.forEach(element =>{
+                // + '<li><a class="btn-class-fetched" href="#">' +"data=" +element.creation_date+ " id="+element.codId+'</a></li>'
+                liElements = liElements + '<?php $hashedPwd = password_hash('+pwd+',PASSWORD_DEFAULT);?>'+
+                'if('+element.codPwd+'==$hashedPwd)'+' fetchCollaboratorsForCodeId('+codeId+');'
+             
+            });
+
+           // document.getElementById("file-version").innerHTML=liElements;
+        }
+    }
+    xhttp.open("GET", "pwdProtect.php?codeId="+codeId, true);
+    xhttp.send();
+
+   
+  }

@@ -44,11 +44,12 @@ body{
     border: 1px solid #6e7176;
 }
 
+
+
 .NavigationMenu button i {
     color: rgb(0, 153, 115);
 	background: #282e32;
 }
-
 .NavigationMenu select {
 	width: 100%;
     padding-top: 5px;
@@ -497,3 +498,9 @@ ul.repositories-class button {
 	color: rgb(255, 255, 255);
 	border: 1px solid rgb(255, 255, 255);
 }
+button.btn {
+	border-radius: 3px;
+	background: #282e32;
+    border: 2px solid #6e7176;
+	color: rgb(255, 255, 255);
+} 

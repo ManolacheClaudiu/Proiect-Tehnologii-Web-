@@ -23,87 +23,87 @@
 
     <hr id="my-hr" />
     <label id="repositories-label-id" for="repositories">My Repositories:</label>
-    <hr id="my-hr" />
+        <hr id="my-hr" />
 
-    <ul class="repositories-class">
-        <?php
-        require_once 'includes/dbh.inc.php';
-
-        if(isset($_SESSION['useruid']))
-        {
-            $loggedUser =  $_SESSION['useruid'];
-            $loggedUserQuery = "SELECT * FROM `cod` WHERE `codUsersName` = '". $loggedUser . "';";
+        <ul class="repositories-class">
+            <?php
+            require_once 'includes/dbh.inc.php';
             
-            $result = mysqli_query($conn, $loggedUserQuery);
-            
-            $rowcount=mysqli_num_rows($result);
-            
-            if($rowcount > 0)
-            {  
-                while($row = $result->fetch_assoc()) {
-                    $codeId = $row["codId"];
-                    $codName = $row["codName"];
-                    echo"<p>$codeId</p>";
-                    echo '<li>
-                  
-                    <a class="btn-class-fetched" href="#" onclick="fetchCodeByCodeId( '.$codeId.','.$codName.')">'. $row["codName"] . '</a>
 
-                    <button onclick="deleteCodeById(' . $codeId . ');" class="fa fa-trash red"></button>
+            if(isset($_SESSION['useruid'])){
+                $loggedUser =  $_SESSION['useruid'];
+                $loggedUserQuery = "SELECT * FROM `cod` WHERE `codUsersName` = '". $loggedUser . "';";
+                
+                $result = mysqli_query($conn, $loggedUserQuery);
+                
+                $rowcount=mysqli_num_rows($result);
+                
+                if($rowcount > 0){  
+                    while($row = $result->fetch_assoc()) {
+                        $codeId = $row["codId"];
+                        $codName = $row["codName"];
+                        echo"<p>$codeId</p>";
+                        
+echo '
+<p id="demo"></p>
+';
+// fetchCodeByCodeId( '.$codeId.')
+                        echo '<li>
+                    
+                        <a class="btn-class-fetched" href="#" onclick="pwdProtect('.$codeId.')">'. $row["codName"] . '</a>
 
-                    <button onclick="editCodeById(' . $codeId . ');" class="fa fa-edit green"></button>
+                        <button onclick="deleteCodeById(' . $codeId . ');" class="fa fa-trash red"></button>
 
-                    <a href="collaboratorController.php?codeId=' . $codeId . '" class="fa fa-plus blue" title="Add colaborator"></a>
+                        <button onclick="editCodeById(' . $codeId . ');" class="fa fa-edit green"></button>
 
-                    <button onclick="fetchCollaboratorsForCodeId(' . $codeId . ');" class="fa fa-list pink"></button>
-                    </li>';
-                }
-            }
+                        <a href="collaboratorController.php?codeId=' . $codeId . '" class="fa fa-plus blue" title="Add colaborator"></a>
 
-            echo '<hr id="my-hr" />';
-            echo '<label id="repositories-label-id" for="repositories">Collaborators Repositories:</label>';
-            echo '<hr id="my-hr" />';
-
-            $collaboratorsQuery = "SELECT `codeId` FROM `collaborators` WHERE `collaboratorUserId` = '". $loggedUser . "';";
-            $result = mysqli_query($conn, $collaboratorsQuery);
-            $rowcount=mysqli_num_rows($result);
-            
-            if($rowcount > 0)
-            { 
-                while($row = $result->fetch_assoc()) {
-                    $codeId = $row["codeId"];
-                    $codeNameQuery = "SELECT `codName`, `codUsersName` FROM `cod` WHERE `codId` ='" . $codeId . "';";
-
-                    $codeNameResult = mysqli_query($conn, $codeNameQuery);
-                    while($row = $codeNameResult->fetch_assoc()) {
-                    echo '<li>
-                    <a class="btn-class-fetched" href="#" onclick="fetchCodeByCodeId(' . $codeId . ');">'. $row['codName'] . '</a>
-
-
-                    <a class="btn-name-fetched fa fa-user" href="#">' . $row['codUsersName'] . '</a>
-                    </li>
-                    ';
+                        <button onclick="fetchCollaboratorsForCodeId(' . $codeId . ');" class="fa fa-list pink"></button>
+                        </li>';
                     }
                 }
-            }
 
-        } else{
-            $anonimQuery = "SELECT * FROM `cod` WHERE `codUsersName` = 'anonim';";
+                echo '<hr id="my-hr" />';
+                echo '<label id="repositories-label-id" for="repositories">Collaborators Repositories:</label>';
+                echo '<hr id="my-hr" />';
 
-            $result = mysqli_query($conn, $anonimQuery);
-            $rowcount=mysqli_num_rows($result);
-            
-            if($rowcount > 0)
-            {  
-                while($row = $result->fetch_assoc()) {
-                    $codeId = $row["codId"];
-                    echo '<li>
-                    <a class="btn-class-fetched" href="#" onclick="fetchCodeByCodeId(' . $codeId . ');">'. $row["codName"] . '</a>
-                    </li>';
+                $collaboratorsQuery = "SELECT `codeId` FROM `collaborators` WHERE `collaboratorUserId` = '". $loggedUser . "';";
+                $result = mysqli_query($conn, $collaboratorsQuery);
+                $rowcount=mysqli_num_rows($result);
+                
+                if($rowcount > 0){ 
+                    while($row = $result->fetch_assoc()) {
+                        $codeId = $row["codeId"];
+                        $codeNameQuery = "SELECT `codName`, `codUsersName` FROM `cod` WHERE `codId` ='" . $codeId . "';";
+
+                        $codeNameResult = mysqli_query($conn, $codeNameQuery);
+                        while($row = $codeNameResult->fetch_assoc()) {
+                            echo '<li>
+                            <a class="btn-class-fetched" href="#" onclick="fetchCodeByCodeId(' . $codeId . ');">'. $row['codName'] . '</a>
+                            <a class="btn-name-fetched fa fa-user" href="#">' . $row['codUsersName'] . '</a>
+                            </li>';
+                        }
+                    }
                 }
-            }
-        }
-        ?>
-    </ul>
+
+            } else{
+                $anonimQuery = "SELECT * FROM `cod` WHERE `codUsersName` = 'anonim';";
+
+                $result = mysqli_query($conn, $anonimQuery);
+                $rowcount=mysqli_num_rows($result);
+                
+                if($rowcount > 0)
+                {  
+                    while($row = $result->fetch_assoc()) {
+                        $codeId = $row["codId"];
+                        echo '<li>
+                        <a class="btn-class-fetched" href="#" onclick="fetchCodeByCodeId(' . $codeId . ');">'. $row["codName"] . '</a>
+                        </li>';
+                    }
+                }
+             }
+             ?>
+         </ul>
 
     <label for="collabs">Your Collaborators:</label>
     <hr id="my-hr" />
@@ -111,7 +111,7 @@
     <ul id="collaborators-list-id" class="repositories-class">
 
     </ul>
-    <label for="collabs">File's versions:</label>
+    <label for="file-version">File's versions:</label>
     <hr id="my-hr" />
 
     <ul id="file-version" class="repositories-class">
