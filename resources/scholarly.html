@@ -75,7 +75,7 @@
                     <h2 id="introduction"> Introduction</h2>
                     <p> 
                         PasteIt is an web application designed for to share code. The application suports also to store it 
-                        for a set amount of time. The source code could be considered as text or as code in Html, Css, Java, C and C++.
+                        for a set amount of time. The source code could be considered as text or as code in Html, Css, Java.
                         It can be used by an unlogged user, but the logged one has more functionalities.
                     </p>
                     <h3 id="purpose">Purpose</h3>
@@ -95,7 +95,7 @@
                         Meant to be easy to use, the application doesn't have a lot of functionalities and it makes it even faster.
                         The user could post his source code by pasting it in the textarea from the main page. After he decided about its valability and its visibility, 
                         he can save it as public and share is as a link, or select the colaborators to which he wants to share the source code.
-                        As an logged in user, he can manage his code, which is the left side of main page: he can edit it or simply delete it.
+                        As an logged in user, he can manage his code, which is the left side of main page: he can edit it or simply delete it, add a collaborator and see them and the versions of the files.
                     </p>
                     <h3 id="references">References</h3>           
                     <p>
@@ -104,6 +104,13 @@
                     <ol>
                         <li><a href="https://www.w3schools.com/html">https://www.w3schools.com/html</a></li>
                         <li><a href="https://www.w3schools.com/css/">https://www.w3schools.com/css/</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=gCo6JqGMi30">How To Create A Login System In PHP For Beginners | Procedural MySQLi | PHP Tutorial</a></li>
+                        <li><a href="https://www.webslesson.info/2019/09/make-captcha-script-in-php-with-ajax.html">Make Captcha Script in PHP with Ajax</a></li>                
+                        <li><a href="https://stackoverflow.com/questions/511088/use-javascript-to-place-cursor-at-end-of-text-in-text-input-element?fbclid=IwAR086hE-fCLGNYYkN1T3NVHqlHWlR83pWeXmaHhcyapypbUnatdGnyrc6-0">Use JavaScript to place cursor at end of text in text input element</a></li>
+                        <li><a href="https://www.w3schools.com/xml/ajax_intro.asp">https://www.w3schools.com/xml/ajax_intro.asp</a></li>
+                        <li><a href="https://www.tutorialspoint.com/json/json_ajax_example.htm">https://www.tutorialspoint.com/json/json_ajax_example.htm</a></li>
+                        <li><a href="https://www.geeksforgeeks.org/php-tutorials/">https://www.geeksforgeeks.org/php-tutorials/</a></li>
+                        <li><a href="https://stackoverflow.com/questions/4928586/get-caret-position-in-html-input">Get caret position in html input</a></li>
                     </ol>    
             </section>
             <section>
@@ -138,14 +145,24 @@
             <section>    
                 <h2 id="requirements">Requirements</h2>
                 <h3 id="userInterface">User interface</h3>
-                <h4 id="mainPage">Main page:</h4>
+                <h4 id="mainPage">Main page: logged user</h4>
                 <img src="main.pdf" alt="main page">
-                <h4 id="loginRegister">Login/ Register page: </h4>
+                <h4 id="mainPage">Main page: add collaborator</h4>
+                <img src="mainAdd.pdf" alt="main page">
+                <h4 id="mainPage">Main page: unlogged user</h4>
+                <img src="mainUnlogged.pdf" alt="main page unlogged">
+                <h4 id="login">Login </h4>
                 <img src="login.pdf" alt="login page">
+                <h4 id="register">Sign up</h4>
+                <img src="signup.pdf" alt="signup page">
+                <h4 id="profile">Profile</h4>
+                <img src="profile.pdf" alt="profile page">
+                <h4 id="about">About Us</h4>
+                <img src="aboutus.pdf" alt="about us page">
                 <h3 id="softwareInterface">Software interface</h3>
                 <p>
-                    The application will be conected to a database using SQL. In this way, the user will be able to
-                    load source code, register and log in on our platform.      
+                    The application will be conected to a database using SQL, in most cases mysqli. In this way, the user will be able to
+                    load source code, register and log in on our platform, save the code, see all the versions and add collaborators.      
                 <h3 id="communicationInterface">Communication interface</h3>
                 <p>
                     The application use HTTP as a protocol between client and server.
