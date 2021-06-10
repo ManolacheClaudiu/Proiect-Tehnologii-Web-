@@ -44,9 +44,9 @@
                         $codName = $row["codName"];
                         echo"<p>$codeId</p>";
                         
-echo '
-<p id="demo"></p>
-';
+// echo '
+// <p id="demo"></p>
+// ';
 // fetchCodeByCodeId( '.$codeId.')
                         echo '<li>
                     
